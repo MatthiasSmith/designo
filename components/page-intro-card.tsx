@@ -42,7 +42,7 @@ const PageIntroCard = () => {
         />
       </div>
       <div className='flex-column flex-centered top-layer'>
-        <h1 className='headingLg'>
+        <h1 className='heading-lg'>
           Award-winning custom designs and digital branding solutions
         </h1>
         <p>

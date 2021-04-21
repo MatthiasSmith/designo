@@ -76,20 +76,20 @@ const GlobalStyle = createGlobalStyle`
 
   /* utils */
   // typography
-  .headingLg {
+  .heading-lg {
     font-size: 2rem;
     font-weight: var(--font-weight-medium);
     line-height: 2.25rem;
   }
 
-  .headingMd {
+  .heading-md {
     font-size: 1.75rem;
     font-weight: var(--font-weight-medium);
     letter-spacing: 1.4px;
     line-height: 2.25rem;
   }
 
-  .headingSm {
+  .heading-sm {
     font-size: 1.25rem;
     font-weight: var(--font-weight-medium);
     letter-spacing: 5px;

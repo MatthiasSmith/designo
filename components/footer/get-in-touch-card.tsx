@@ -42,7 +42,7 @@ const GetInTouchCard = () => {
         />
       </div>
       <div className='content-container flex-column flex-centered text-center'>
-        <h2 className='headingLg'>Let’s talk about your project</h2>
+        <h2 className='heading-lg'>Let’s talk about your project</h2>
         <p>
           Ready to take it to the next level? Contact us today and find out how
           our expertise can help your business grow.

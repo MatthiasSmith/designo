@@ -21,7 +21,7 @@ const Styled = styled.li`
     height: 12.625rem;
   }
 
-  .headingSm {
+  .heading-sm {
     margin-top: 3rem;
   }
 
@@ -53,7 +53,7 @@ const QualityItem = ({
         </div>
         <Image src={image} layout='fixed' width={202} height={202} alt='' />
       </div>
-      <h2 className='headingSm text-uppercase'>{title}</h2>
+      <h2 className='heading-sm text-uppercase'>{title}</h2>
       <p className='quality-text'>{text}</p>
     </Styled>
   );

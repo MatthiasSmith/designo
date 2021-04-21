@@ -23,7 +23,7 @@ const Styled = styled.li`
     }
   }
 
-  .headingMd {
+  .heading-md {
     margin-bottom: 0.75rem;
   }
 
@@ -48,7 +48,7 @@ const ProjectLinkItem = ({
       <Link href='/'>
         <a>
           <div className='top-layer content-container text-center text-uppercase'>
-            <h2 className='headingMd'>{title}</h2>
+            <h2 className='heading-md'>{title}</h2>
             <span className='link-text'>View Projects</span>
             <Image
               src='/../public/shared/desktop/icon-right-arrow.svg'
