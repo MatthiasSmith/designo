@@ -26,6 +26,10 @@ const GlobalStyle = createGlobalStyle`
     // misc
     --site-side-padding: 1.5rem;
     --border-radius: 0.9375rem;
+
+    // breakpoints
+    --tablet-width: 48rem;
+    --desktop-width: 64rem;
   }
 
   // setup
@@ -99,28 +103,6 @@ const GlobalStyle = createGlobalStyle`
 
   .text-uppercase {
     text-transform: uppercase;
-  }
-
-  // desktop typography
-  @media screen and (min-width: 34em) {
-    body {
-      font-size: 1rem;
-    }
-
-    p {
-      line-height: 1.625rem;
-    }
-
-    .headingLg {
-      font-size: 3rem;
-      line-height: 3rem;
-    }
-
-    .headingMd {
-      font-size: 2.5rem;
-      line-height: 3rem;
-      letter-spacing: 2px;
-    }
   }
 
   // text-color 
@@ -203,6 +185,37 @@ const GlobalStyle = createGlobalStyle`
   .top-layer {
     position: relative;
     z-index: 1;
+  }
+
+  @media screen and (max-width: 47.99em) {
+    .hidden-sm {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 48em) {
+    body {
+      font-size: 1rem;
+    }
+
+    p {
+      line-height: 1.625rem;
+    }
+
+    .heading-lg {
+      font-size: 3rem;
+      line-height: 3rem;
+    }
+
+    .heading-md {
+      font-size: 2.5rem;
+      line-height: 3rem;
+      letter-spacing: 2px;
+    }
+
+    .hidden-gt-sm {
+      display: none;
+    }
   }
 `;
 
