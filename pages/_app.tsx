@@ -45,6 +45,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 0.9375rem;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    width: 100%;
   }
 
   p {
