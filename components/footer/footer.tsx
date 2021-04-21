@@ -27,6 +27,7 @@ const StyledFooter = styled.footer`
   .address-container {
     color: rgba(255, 255, 255, 0.5);
     font-size: 1rem;
+    line-height: 1.625rem;
     margin-top: 2.5rem;
   }
 

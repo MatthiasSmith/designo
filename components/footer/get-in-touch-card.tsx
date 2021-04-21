@@ -1,22 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
+import ButtonLink from '../button-link';
 
 const Styled = styled.article`
-  background: var(--color-primary);
-  border-radius: 0.9375rem;
-  color: white;
+  border-radius: var(--border-radius);
   margin: 0 var(--site-side-padding);
-  overflow: hidden;
-  padding: 4rem var(--site-side-padding);
-  position: relative;
-  z-index: 1;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 
   .bg-image {
-    position: absolute;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
     top: -26.5%;
     left: -71.5%;
   }
@@ -30,24 +23,14 @@ const Styled = styled.article`
     margin-top: 1rem;
   }
 
-  a {
-    display: block;
+  .get-in-touch-link {
     margin: 2rem auto 0;
-    background: white;
-    color: var(--dark-gray);
-    border-radius: 0.5rem;
-    text-transform: uppercase;
-    font-weight: var(--font-weight-medium);
-    font-size: 0.9375rem;
-    font-family: var(--font-family);
-    letter-spacing: 1px;
-    padding: 1.0625rem 1.1875rem;
   }
 `;
 
 const GetInTouchCard = () => {
   return (
-    <Styled>
+    <Styled className='card'>
       <div className='bg-image'>
         <Image
           src='/../public/shared/desktop/bg-pattern-call-to-action.svg'
@@ -58,13 +41,15 @@ const GetInTouchCard = () => {
           objectFit='cover'
         />
       </div>
-      <div className='content-container flex-column flex-centered'>
-        <h2 className='headingLg text-center'>Let’s talk about your project</h2>
-        <p className='text-center'>
+      <div className='content-container flex-column flex-centered text-center'>
+        <h2 className='headingLg'>Let’s talk about your project</h2>
+        <p>
           Ready to take it to the next level? Contact us today and find out how
           our expertise can help your business grow.
         </p>
-        <a>Get in touch</a>
+        <ButtonLink href='/' className='get-in-touch-link'>
+          Get in touch
+        </ButtonLink>
       </div>
     </Styled>
   );

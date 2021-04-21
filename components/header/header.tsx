@@ -3,13 +3,15 @@ import styled from 'styled-components';
 
 import Nav from './nav';
 
-const StyledHeader = styled.header``;
+const StyledHeader = styled.header`
+  height: 6rem;
+  padding: 2.1875rem var(--site-side-padding);
+`;
 
-const Header = ({ children }: { children: React.ReactNode }) => {
+const Header = () => {
   return (
     <StyledHeader>
       <Nav />
-      {children}
     </StyledHeader>
   );
 };

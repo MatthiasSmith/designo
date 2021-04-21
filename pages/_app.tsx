@@ -25,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
 
     // misc
     --site-side-padding: 1.5rem;
+    --border-radius: 0.9375rem;
   }
 
   // setup
@@ -42,9 +43,12 @@ const GlobalStyle = createGlobalStyle`
   body {
     color: var(--dark-gray);
     font-size: 0.9375rem;
-    line-height: 1.625rem;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+  }
+
+  p {
+    line-height: 1.5625rem;
   }
 
   h1,
@@ -60,6 +64,11 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
   /* utils */
   // typography
   .headingLg {
@@ -69,10 +78,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .headingMd {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     font-weight: var(--font-weight-medium);
-    letter-spacing: 2px;
-    line-height: 3rem;
+    letter-spacing: 1.4px;
+    line-height: 2.25rem;
   }
 
   .headingSm {
@@ -87,15 +96,29 @@ const GlobalStyle = createGlobalStyle`
     text-align: center;
   }
 
+  .text-uppercase {
+    text-transform: uppercase;
+  }
+
   // desktop typography
   @media screen and (min-width: 34em) {
     body {
       font-size: 1rem;
     }
 
+    p {
+      line-height: 1.625rem;
+    }
+
     .headingLg {
       font-size: 3rem;
       line-height: 3rem;
+    }
+
+    .headingMd {
+      font-size: 2.5rem;
+      line-height: 3rem;
+      letter-spacing: 2px;
     }
   }
 
@@ -141,9 +164,44 @@ const GlobalStyle = createGlobalStyle`
     justify-content: center;
   }
 
+  .space-between {
+    justify-content: space-between;
+  }
+
   // positioning
   .m0a {
     margin: 0 auto;
+  }
+
+  // misc.
+  .card {
+    background: var(--color-primary);
+    color: white;
+    overflow: hidden;
+    padding-left: var(--site-side-padding);
+    padding-right: var(--site-side-padding);
+    position: relative;
+    z-index: 1;
+  }
+
+  .bg-image {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .image-link {
+    display: inline-block;
+
+    > div {
+      vertical-align: bottom;
+    }
+  }
+
+  .top-layer {
+    position: relative;
+    z-index: 1;
   }
 `;
 
