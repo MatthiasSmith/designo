@@ -11,6 +11,10 @@ const StyledFooter = styled.footer`
     padding: 15.8125rem var(--site-side-padding) 4rem;
   }
 
+  .logo-container {
+    text-align: center;
+  }
+
   .footer-nav {
     margin-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -23,6 +27,10 @@ const StyledFooter = styled.footer`
       text-transform: uppercase;
       margin-top: 2rem;
     }
+  }
+
+  .bottom-content-container {
+    align-items: center;
   }
 
   .address-container {
@@ -45,6 +53,10 @@ const StyledFooter = styled.footer`
     .dark-bg {
       margin-top: -5.25rem;
       padding: 10rem var(--site-side-padding-md) 5rem;
+    }
+
+    .logo-container {
+      text-align: unset;
     }
 
     .footer-nav {
@@ -81,7 +93,7 @@ const Footer = () => {
       <GetInTouchCard />
       <div className='dark-bg flex-column flex-centered'>
         <div className='flex-row-gt-sm full-width'>
-          <div className='flex'>
+          <div className='flex logo-container'>
             <Image
               src='/shared/desktop/logo-light.png'
               quality='100'
