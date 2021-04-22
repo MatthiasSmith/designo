@@ -2,6 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+
+import { TABLET_BP } from '../../../constants/constants';
+import ResponsiveImage from '../../responsive-image';
 
 const Styled = styled.li`
   border-radius: var(--border-radius);
@@ -28,22 +32,45 @@ const Styled = styled.li`
   }
 
   .link-text {
+    font-size: 0.9375rem;
     letter-spacing: 5px;
     margin-right: 1rem;
+  }
+
+  @media screen and (min-width: ${TABLET_BP}em) {
+    .content-container {
+      padding: 3.3125rem var(--site-side-padding);
+    }
+
+    .heading-md {
+      margin-bottom: 1.4rem;
+    }
+
+    .link-text {
+      margin-right: 1.3125rem;
+    }
   }
 `;
 
 const ProjectLinkItem = ({
   title,
-  bgImage,
+  bgImages,
 }: {
   title: string;
-  bgImage: string;
+  bgImages: any;
 }) => {
+  const router = useRouter();
+
   return (
     <Styled>
       <div className='bg-image' aria-hidden='true'>
-        <Image src={bgImage} layout='fill' alt='' />
+        <ResponsiveImage
+          imageSources={bgImages}
+          imageIndex={router.asPath === '/' ? 0 : 1}
+          layout='fill'
+          objectFit='cover'
+          alt=''
+        />
       </div>
       <Link href='/'>
         <a>
@@ -51,7 +78,7 @@ const ProjectLinkItem = ({
             <h2 className='heading-md'>{title}</h2>
             <span className='link-text'>View Projects</span>
             <Image
-              src='/../public/shared/desktop/icon-right-arrow.svg'
+              src='/shared/desktop/icon-right-arrow.svg'
               layout='fixed'
               width={7}
               height={10}

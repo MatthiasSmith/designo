@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import { TABLET_BP } from '../../constants/constants';
 import Button from '../button';
 import MobileNavMenu from './mobile-nav-menu';
 
@@ -11,7 +12,7 @@ const StyledNav = styled.nav`
     height: 20px;
   }
 
-  @media screen and (min-width: 48em) {
+  @media screen and (min-width: ${TABLET_BP}em) {
     .nav-list-item {
       position: relative;
       overflow: hidden;
@@ -74,7 +75,7 @@ const Nav = () => {
           <a className='image-link'>
             <Image
               priority={true}
-              src='/../public/shared/desktop/logo-dark.png'
+              src='/shared/desktop/logo-dark.png'
               height={27}
               width={202}
               layout='fixed'
@@ -112,8 +113,8 @@ const Nav = () => {
           <Image
             src={
               isMobileNavVisible
-                ? '/../public/shared/mobile/icon-close.svg'
-                : '/../public/shared/mobile/icon-hamburger.svg'
+                ? '/shared/mobile/icon-close.svg'
+                : '/shared/mobile/icon-hamburger.svg'
             }
             width={24}
             height={20}

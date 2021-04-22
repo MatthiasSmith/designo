@@ -2,6 +2,7 @@ import { AppProps } from 'next/app';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 import '../styles/global.css';
+import { TABLET_BP, DESKTOP_BP, UNIT } from '../constants/constants';
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -22,14 +23,17 @@ const GlobalStyle = createGlobalStyle`
     --font-family: 'Jost', sans-serif;
     --font-weight-normal: 400;
     --font-weight-medium: 500;
+    --font-weight-bold: 700;
 
     // misc
     --site-side-padding: 1.5rem;
+    --site-side-padding-md: 2.4375rem;
+    --site-content-max-width: 69.4375rem;
     --border-radius: 0.9375rem;
 
     // breakpoints
-    --tablet-width: 48rem;
-    --desktop-width: 64rem;
+    --tablet-width: ${TABLET_BP}${UNIT};
+    --desktop-width: ${DESKTOP_BP}${UNIT};
   }
 
   // setup
@@ -45,11 +49,18 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    background: white;
     color: var(--dark-gray);
     font-size: 0.9375rem;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     width: 100%;
+  }
+
+  header,
+  main {
+    margin: 0 auto;
+    max-width: var(--site-content-max-width);
   }
 
   p {
@@ -151,6 +162,10 @@ const GlobalStyle = createGlobalStyle`
     justify-content: space-between;
   }
 
+  .full-width {
+    width: 100%;
+  }
+
   // positioning
   .m0a {
     margin: 0 auto;
@@ -187,13 +202,13 @@ const GlobalStyle = createGlobalStyle`
     z-index: 1;
   }
 
-  @media screen and (max-width: 47.99em) {
+  @media screen and (max-width: ${TABLET_BP - 0.01}em) {
     .hidden-sm {
       display: none;
     }
   }
 
-  @media screen and (min-width: 48em) {
+  @media screen and (min-width: ${TABLET_BP}em) {
     body {
       font-size: 1rem;
     }
@@ -202,6 +217,7 @@ const GlobalStyle = createGlobalStyle`
       line-height: 1.625rem;
     }
 
+    // typography
     .heading-lg {
       font-size: 3rem;
       line-height: 3rem;
@@ -215,6 +231,18 @@ const GlobalStyle = createGlobalStyle`
 
     .hidden-gt-sm {
       display: none;
+    }
+
+    // layout
+    .flex-row-gt-sm {
+      display: flex;
+      flex-flow: row;
+    }
+
+    // misc.
+    .card {
+      padding-left: 3.625rem;
+      padding-right: 3.625rem;
     }
   }
 `;

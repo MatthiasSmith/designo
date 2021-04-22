@@ -9,7 +9,7 @@ const ProjectLinksList = () => {
       {projectLinks.map((project) => (
         <ProjectLinkItem
           title={project.title}
-          bgImage={project.image}
+          bgImages={project.imageSources}
           key={project.title}
         />
       ))}
