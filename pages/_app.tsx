@@ -207,6 +207,12 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  @media screen and (max-width: ${DESKTOP_BP - 0.01}em) {
+    .hidden-md {
+      display: none;
+    }
+  }
+
   @media screen and (min-width: ${TABLET_BP}em) {
     body {
       font-size: 1rem;
