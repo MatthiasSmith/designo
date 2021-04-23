@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useState } from 'react';
-import Image, { ImageProps } from 'next/image';
+import Image from 'next/image';
 
 import { TABLET_BP, DESKTOP_BP } from '../constants/constants';
 
@@ -18,11 +18,7 @@ const ResponsiveImage = (props) => {
 
   return (
     <Image
-      src={
-        imageSources[screenSize].length
-          ? imageSources[screenSize][imageIndex]
-          : imageSources[screenSize][0]
-      }
+      src={imageSources[screenSize][imageIndex] || imageSources[screenSize][0]}
       {...otherProps}
     />
   );
