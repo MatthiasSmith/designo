@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 
-import { TABLET_BP } from '../../constants/constants';
+import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
 import GetInTouchCard from './get-in-touch-card';
 
 const StyledFooter = styled.footer`
@@ -9,6 +9,14 @@ const StyledFooter = styled.footer`
     background-color: var(--black);
     margin-top: -12rem;
     padding: 15.8125rem var(--site-side-padding) 4rem;
+  }
+
+  .nav-row-container,
+  .bottom-content-container {
+    margin: 0 auto;
+    max-width: calc(
+      var(--site-content-max-width) - var(--site-side-padding-md) * 2
+    );
   }
 
   .logo-container {
@@ -42,6 +50,7 @@ const StyledFooter = styled.footer`
   }
 
   .social-links-list {
+    justify-content: center;
     margin-top: 2.5rem;
 
     li:not(:last-of-type) {
@@ -85,14 +94,21 @@ const StyledFooter = styled.footer`
       font-weight: var(--font-weight-bold);
     }
   }
+
+  @media screen and (min-width: ${DESKTOP_BP}em) {
+    .dark-bg {
+      margin-top: -4.5rem;
+      padding: 9rem var(--site-side-padding-md) 4.5rem;
+    }
+  }
 `;
 
 const Footer = () => {
   return (
     <StyledFooter>
       <GetInTouchCard />
-      <div className='dark-bg flex-column flex-centered'>
-        <div className='flex-row-gt-sm full-width'>
+      <div className='dark-bg flex-col flex-centered'>
+        <div className='flex-row-gt-sm full-width nav-row-container'>
           <div className='flex logo-container'>
             <Image
               src='/shared/desktop/logo-light.png'
@@ -117,12 +133,12 @@ const Footer = () => {
           </nav>
         </div>
         <div className='bottom-content-container flex-row-gt-sm space-between full-width'>
-          <div className='address-container flex-column'>
+          <div className='address-container flex-col'>
             <strong>Designo Central Office</strong>
             <span>3886 Wellington Street</span>
             <span>Toronto, Ontario M9C 3J5</span>
           </div>
-          <div className='address-container flex-column'>
+          <div className='address-container flex-col'>
             <strong>Contact Us (Central Office)</strong>
             <span className='bold-gt-sm'>P : +1 253-863-8967</span>
             <span className='bold-gt-sm'>M : contact@designo.co</span>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { TABLET_BP } from '../../../constants/constants';
+import { DESKTOP_BP, TABLET_BP } from '../../../constants/constants';
 import ResponsiveImage from '../../responsive-image';
 
 const Styled = styled.li`
@@ -23,7 +23,7 @@ const Styled = styled.li`
     transition: background-color 0.3s ease-out;
 
     &:hover {
-      background-color: rgba(231, 129, 107, 0.5);
+      background-color: rgba(231, 129, 107, 0.65);
     }
   }
 
@@ -48,6 +48,25 @@ const Styled = styled.li`
 
     .link-text {
       margin-right: 1.3125rem;
+    }
+  }
+
+  @media screen and (min-width: ${DESKTOP_BP}em) {
+    &:first-of-type {
+      grid-column: 1 / 1;
+      grid-row: 1 / span 2;
+
+      .content-container {
+        padding: 17.0625rem 0;
+      }
+    }
+
+    &:not(:first-of-type) {
+      margin-top: 0;
+
+      .content-container {
+        padding: 6.6875rem 0;
+      }
     }
   }
 `;

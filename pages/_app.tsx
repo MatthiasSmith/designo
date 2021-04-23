@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
     // misc
     --site-side-padding: 1.5rem;
     --site-side-padding-md: 2.4375rem;
-    --site-content-max-width: 69.4375rem;
+    --site-content-max-width: 74.3125rem;
     --border-radius: 0.9375rem;
 
     // breakpoints
@@ -52,7 +52,6 @@ const GlobalStyle = createGlobalStyle`
     background: white;
     color: var(--dark-gray);
     font-size: 0.9375rem;
-    -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     width: 100%;
   }
@@ -136,7 +135,7 @@ const GlobalStyle = createGlobalStyle`
     flex-flow: row;
   }
 
-  .flex-column {
+  .flex-col {
     display: flex;
     flex-flow: column;
   }
@@ -184,7 +183,7 @@ const GlobalStyle = createGlobalStyle`
 
   .bg-image {
     position: absolute;
-    z-index: 0;
+    z-index: -1;
     width: 100%;
     height: 100%;
   }
@@ -243,6 +242,23 @@ const GlobalStyle = createGlobalStyle`
     .card {
       padding-left: 3.625rem;
       padding-right: 3.625rem;
+    }
+  }
+
+  @media screen and (min-width: ${DESKTOP_BP}em) {
+    .flex-row-gt-md {
+      display: flex;
+      flex-flow: row;
+    }
+
+    .flex-col-gt-md {
+      display: flex;
+      flex-flow: column;
+    }
+
+    .card {
+      padding-left: 5.9375rem;
+      padding-right: 5.9375rem;
     }
   }
 `;

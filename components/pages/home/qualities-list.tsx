@@ -10,7 +10,7 @@ const Styled = styled.ul`
 
 const QualitiesList = () => {
   return (
-    <Styled className='company-qualities-list'>
+    <Styled className='company-qualities-list flex-row-gt-md'>
       {qualities.map((quality) => (
         <QualityItem {...quality} key={quality.title} />
       ))}

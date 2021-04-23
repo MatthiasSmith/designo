@@ -3,13 +3,19 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import ButtonLink from '../button-link';
 
-import { TABLET_BP } from '../../constants/constants';
+import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
 
-const Styled = styled.article`
-  border-radius: var(--border-radius);
-  margin: 0 var(--site-side-padding);
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+const Styled = styled.div`
+  margin: 0 auto;
+  max-width: var(--site-content-max-width);
+  padding: 0 var(--site-side-padding);
+
+  .card {
+    border-radius: var(--border-radius);
+    max-width: var(--site-content-max-width);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
 
   .bg-image {
     top: -26.5%;
@@ -21,6 +27,11 @@ const Styled = styled.article`
     z-index: 1;
   }
 
+  .text-container {
+    align-items: center;
+    text-align: center;
+  }
+
   .get-in-touch-text {
     margin-top: 1rem;
   }
@@ -30,9 +41,12 @@ const Styled = styled.article`
   }
 
   @media screen and (min-width: ${TABLET_BP}em) {
-    margin: 0 var(--site-side-padding-md);
-    padding-top: 3.5625rem;
-    padding-bottom: 3.5625rem;
+    padding: 0 var(--site-side-padding-md);
+
+    .card {
+      padding-top: 3.5625rem;
+      padding-bottom: 3.5625rem;
+    }
 
     .bg-image {
       top: -33.5%;
@@ -49,30 +63,56 @@ const Styled = styled.article`
       max-width: 28rem;
     }
   }
+
+  @media screen and (min-width: ${DESKTOP_BP}em) {
+    .card {
+      padding-top: 4.5rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .bg-image {
+      top: -50%;
+      left: 21.33%;
+    }
+
+    .text-container {
+      flex: 1;
+      text-align: left;
+      align-items: unset;
+    }
+
+    .get-in-touch-link {
+      margin-top: 0;
+    }
+  }
 `;
 
 const GetInTouchCard = () => {
   return (
-    <Styled className='card'>
-      <div className='bg-image'>
-        <Image
-          src='/shared/desktop/bg-pattern-call-to-action.svg'
-          alt=''
-          layout='fixed'
-          width={876}
-          height={584}
-        />
-      </div>
-      <div className='content-container flex-column flex-centered text-center'>
-        <h2 className='heading-lg'>Let’s talk about your project</h2>
-        <p className='get-in-touch-text'>
-          Ready to take it to the next level? Contact us today and find out how
-          our expertise can help your business grow.
-        </p>
-        <ButtonLink href='/' className='get-in-touch-link'>
-          Get in touch
-        </ButtonLink>
-      </div>
+    <Styled>
+      <article className='card'>
+        <div className='bg-image'>
+          <Image
+            src='/shared/desktop/bg-pattern-call-to-action.svg'
+            alt=''
+            layout='fixed'
+            width={876}
+            height={584}
+          />
+        </div>
+        <div className='content-container flex-col flex-centered flex-row-gt-md'>
+          <div className='text-container flex-col'>
+            <h2 className='heading-lg'>Let’s talk about your project</h2>
+            <p className='get-in-touch-text'>
+              Ready to take it to the next level? Contact us today and find out
+              how our expertise can help your business grow.
+            </p>
+          </div>
+          <ButtonLink href='/' className='get-in-touch-link'>
+            Get in touch
+          </ButtonLink>
+        </div>
+      </article>
     </Styled>
   );
 };

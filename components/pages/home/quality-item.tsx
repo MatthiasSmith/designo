@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 
-import { TABLET_BP } from '../../../constants/constants';
+import { DESKTOP_BP, TABLET_BP } from '../../../constants/constants';
 
 const Styled = styled.li`
   text-align: center;
@@ -50,6 +50,23 @@ const Styled = styled.li`
       margin-left: 3rem;
     }
   }
+
+  @media screen and (min-width: ${DESKTOP_BP}em) {
+    text-align: center;
+
+    &:not(:first-of-type) {
+      margin-top: 0;
+      margin-left: 1.875rem;
+    }
+
+    .heading-sm {
+      margin-top: 3rem;
+    }
+
+    .text-container {
+      margin-left: 0;
+    }
+  }
 `;
 
 const QualityItem = ({
@@ -62,7 +79,7 @@ const QualityItem = ({
   image: string;
 }) => {
   return (
-    <Styled className='flex-column flex-row-gt-sm flex-centered'>
+    <Styled className='flex-col flex-row-gt-sm flex-col-gt-md flex-centered'>
       <div className='img-container'>
         <div className='bg-image' aria-hidden='true'>
           <Image
