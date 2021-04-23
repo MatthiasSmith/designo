@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
 import GetInTouchCard from './get-in-touch-card';
@@ -104,30 +106,43 @@ const StyledFooter = styled.footer`
 `;
 
 const Footer = () => {
+  const router = useRouter();
+
   return (
     <StyledFooter>
-      <GetInTouchCard />
+      {router.asPath === '/contact' ? null : <GetInTouchCard />}
       <div className='dark-bg flex-col flex-centered'>
         <div className='flex-row-gt-sm full-width nav-row-container'>
           <div className='flex logo-container'>
-            <Image
-              src='/shared/desktop/logo-light.png'
-              quality='100'
-              layout='fixed'
-              height={27}
-              width={202}
-            />
+            <Link href='/'>
+              <a>
+                <Image
+                  src='/shared/desktop/logo-light.png'
+                  quality='100'
+                  layout='fixed'
+                  height={27}
+                  width={202}
+                  alt='Designo home.'
+                />
+              </a>
+            </Link>
           </div>
           <nav className='footer-nav'>
             <ul className='text-center flex-row-gt-sm'>
               <li>
-                <a className='link-text'>Our company</a>
+                <Link href='/about'>
+                  <a className='link-text'>Our company</a>
+                </Link>
               </li>
               <li>
-                <a className='link-text'>Locations</a>
+                <Link href='/locations'>
+                  <a className='link-text'>Locations</a>
+                </Link>
               </li>
               <li>
-                <a className='link-text'>Contact</a>
+                <Link href='/contact'>
+                  <a className='link-text'>Contact</a>
+                </Link>
               </li>
             </ul>
           </nav>

@@ -21,6 +21,7 @@ const ProjectLinksList = () => {
       {projectLinks.map((project) => (
         <ProjectLinkItem
           title={project.title}
+          href={project.href}
           bgImages={project.imageSources}
           key={project.title}
         />

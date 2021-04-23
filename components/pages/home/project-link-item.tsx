@@ -73,9 +73,11 @@ const Styled = styled.li`
 
 const ProjectLinkItem = ({
   title,
+  href,
   bgImages,
 }: {
   title: string;
+  href: string;
   bgImages: any;
 }) => {
   const router = useRouter();
@@ -91,7 +93,7 @@ const ProjectLinkItem = ({
           alt=''
         />
       </div>
-      <Link href='/'>
+      <Link href={href}>
         <a>
           <div className='top-layer content-container text-center text-uppercase'>
             <h2 className='heading-md'>{title}</h2>

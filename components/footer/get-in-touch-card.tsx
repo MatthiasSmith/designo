@@ -108,7 +108,7 @@ const GetInTouchCard = () => {
               how our expertise can help your business grow.
             </p>
           </div>
-          <ButtonLink href='/' className='get-in-touch-link'>
+          <ButtonLink href='/contact' className='get-in-touch-link'>
             Get in touch
           </ButtonLink>
         </div>

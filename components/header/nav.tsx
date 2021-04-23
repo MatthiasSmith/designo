@@ -85,7 +85,7 @@ const Nav = () => {
         </Link>
         <ul className='flex-row text-uppercase hidden-sm'>
           <li className='nav-list-item'>
-            <Link href='/our-company'>
+            <Link href='/about'>
               <a className='nav-link'>Our Company</a>
             </Link>
           </li>

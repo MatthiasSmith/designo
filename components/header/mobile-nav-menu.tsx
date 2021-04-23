@@ -60,7 +60,7 @@ const MobileNavMenu = React.forwardRef<HTMLDivElement, { onClose: Function }>(
         >
           <ul>
             <li>
-              <Link href='/our-company'>
+              <Link href='/about'>
                 <a className='nav-link'>Our Company</a>
               </Link>
             </li>
