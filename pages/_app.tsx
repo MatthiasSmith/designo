@@ -1,4 +1,5 @@
 import { AppProps } from 'next/app';
+import Router from 'next/router';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 import '../styles/global.css';
@@ -275,6 +276,10 @@ const theme = {
   },
 };
 
+Router.events.on(
+  'routeChangeComplete',
+  () => (document.body.style.position = 'static')
+);
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
