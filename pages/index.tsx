@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { DESKTOP_BP, TABLET_BP } from '../constants/constants';
 import Layout from '../components/layout';
 import PageIntroCard from '../components/pages/home/page-intro-card';
-import ProjectLinksList from '../components/pages/home/project-links-list';
+import ProductLinksList from '../components/products/product-links-list';
 import QualitiesList from '../components/pages/home/qualities-list';
 
 const StyledBgImages = styled.div`
@@ -61,7 +61,7 @@ export default function Home() {
       </StyledBgImages>
       <PageIntroCard />
       <StyledArticle>
-        <ProjectLinksList />
+        <ProductLinksList />
         <QualitiesList />
       </StyledArticle>
     </Layout>

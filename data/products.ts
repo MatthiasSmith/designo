@@ -1,4 +1,4 @@
-const projectLinks = [
+const products = [
   {
     title: 'Web Design',
     href: '/web-design',
@@ -31,4 +31,4 @@ const projectLinks = [
   },
 ];
 
-export default projectLinks;
+export default products;
