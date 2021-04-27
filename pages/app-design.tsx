@@ -1,13 +1,16 @@
 import React from 'react';
 
 import Layout from '../components/layout/layout';
+import ContentContainer from '../components/layout/content-container';
 import IntroCard from '../components/intro-card';
 import ResponsiveImage from '../components/responsive-image';
 import designPageImages from '../data/design-page-images';
+import ProjectList from '../components/projects/project-list';
+import ProductLinksList from '../components/products/product-links-list';
 
 const AppDesign = () => {
   return (
-    <Layout>
+    <Layout pageTitle='App Design'>
       <IntroCard
         title='App Design'
         text='Our mobile designs bring intuitive digital solutions to your customers right at their fingertips.'
@@ -21,7 +24,10 @@ const AppDesign = () => {
           />
         }
       />
-      app design
+      <ContentContainer>
+        <ProjectList projectType='app-design' />
+        <ProductLinksList />
+      </ContentContainer>
     </Layout>
   );
 };

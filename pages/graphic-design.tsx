@@ -1,13 +1,16 @@
 import React from 'react';
 
 import Layout from '../components/layout/layout';
+import ContentContainer from '../components/layout/content-container';
 import IntroCard from '../components/intro-card';
 import ResponsiveImage from '../components/responsive-image';
 import designPageImages from '../data/design-page-images';
+import ProductLinksList from '../components/products/product-links-list';
+import ProjectList from '../components/projects/project-list';
 
 const GraphicDesign = () => {
   return (
-    <Layout>
+    <Layout pageTitle='Graphic Design'>
       <IntroCard
         title='Graphic Design'
         text='We deliver eye-catching branding materials that are tailored to meet your business objectives.'
@@ -21,7 +24,10 @@ const GraphicDesign = () => {
           />
         }
       />
-      Graphic Design
+      <ContentContainer>
+        <ProjectList projectType='graphic-design' />
+        <ProductLinksList />
+      </ContentContainer>
     </Layout>
   );
 };
