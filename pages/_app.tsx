@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
 
     // secondary colors
     --light-peach: hsl(11, 100%, 80%);
+    --light-peach-bg: hsl(4, 76%, 97%);
     --dark-gray: hsl(264, 5%, 20%);
     --light-gray: hsl(210, 17%, 95%);
 

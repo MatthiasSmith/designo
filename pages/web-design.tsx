@@ -6,10 +6,10 @@ import Layout from '../components/layout';
 import IntroCard from '../components/intro-card';
 import ResponsiveImage from '../components/responsive-image';
 import designPageImages from '../data/design-page-images';
-// import ProjectLinksList from '../components/pages/home/project-links-list';
+import ProjectList from '../components/projects/project-list';
 
-const StyledArticle = styled.article`
-  padding: 7.5rem var(--site-side-padding);
+const StyledContentContainer = styled.div`
+  padding: 6rem var(--site-side-padding);
 
   @media screen and (min-width: ${TABLET_BP}em) {
     padding: 7.5rem 0 4.1875rem;
@@ -36,7 +36,9 @@ export default function WebDesign() {
           />
         }
       />
-      <StyledArticle>Web Design</StyledArticle>
+      <StyledContentContainer>
+        <ProjectList projectType='web-design' />
+      </StyledContentContainer>
     </Layout>
   );
 }
