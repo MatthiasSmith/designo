@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
 
-import { TABLET_BP } from '../constants/constants';
-import Header from './header/header';
-import Footer from './footer/footer';
+import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
+import Header from '../header/header';
+import Footer from '../footer/footer';
 
 const StyledMain = styled.main`
   @media screen and (min-width: ${TABLET_BP}em) {

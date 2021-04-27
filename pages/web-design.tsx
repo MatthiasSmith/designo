@@ -1,29 +1,14 @@
-import styled from 'styled-components';
-// import Image from 'next/image';
-
-import { DESKTOP_BP, TABLET_BP } from '../constants/constants';
-import Layout from '../components/layout';
+import Layout from '../components/layout/layout';
+import ContentContainer from '../components/layout/content-container';
 import IntroCard from '../components/intro-card';
 import ResponsiveImage from '../components/responsive-image';
 import designPageImages from '../data/design-page-images';
 import ProjectList from '../components/projects/project-list';
 import ProductLinksList from '../components/products/product-links-list';
 
-const StyledContentContainer = styled.div`
-  padding: 6rem var(--site-side-padding);
-
-  @media screen and (min-width: ${TABLET_BP}em) {
-    padding: 7.5rem 0;
-  }
-
-  @media screen and (min-width: ${DESKTOP_BP}em) {
-    padding: 10rem 0;
-  }
-`;
-
 export default function WebDesign() {
   return (
-    <Layout>
+    <Layout pageTitle='Web Design'>
       <IntroCard
         title='Web Design'
         text='We build websites that serve as powerful marketing tools and bring memorable brand experiences.'
@@ -37,10 +22,10 @@ export default function WebDesign() {
           />
         }
       />
-      <StyledContentContainer>
+      <ContentContainer>
         <ProjectList projectType='web-design' />
         <ProductLinksList />
-      </StyledContentContainer>
+      </ContentContainer>
     </Layout>
   );
 }

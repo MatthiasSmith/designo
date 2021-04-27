@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '../components/layout';
+import Layout from '../components/layout/layout';
 
 import IntroCard from '../components/intro-card';
 import ResponsiveImage from '../components/responsive-image';
