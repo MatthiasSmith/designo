@@ -1,7 +1,7 @@
 const projectLinks = [
   {
     title: 'Web Design',
-    href: 'web-design',
+    href: '/web-design',
     imageSources: {
       sm: ['/home/mobile/image-web-design.jpg'],
       md: ['/home/tablet/image-web-design.jpg'],
@@ -13,7 +13,7 @@ const projectLinks = [
   },
   {
     title: 'App Design',
-    href: 'app-design',
+    href: '/app-design',
     imageSources: {
       sm: ['/home/mobile/image-app-design.jpg'],
       md: ['/home/tablet/image-app-design.jpg'],
@@ -22,7 +22,7 @@ const projectLinks = [
   },
   {
     title: 'Graphic Design',
-    href: 'graphic-design',
+    href: '/graphic-design',
     imageSources: {
       sm: ['/home/mobile/image-graphic-design.jpg'],
       md: ['/home/tablet/image-graphic-design.jpg'],
