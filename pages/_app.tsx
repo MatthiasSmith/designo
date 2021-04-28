@@ -208,6 +208,16 @@ const GlobalStyle = createGlobalStyle`
     z-index: 1;
   }
 
+  .sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+  }
+
   @media screen and (max-width: ${TABLET_BP - 0.01}em) {
     .hidden-sm {
       display: none;

@@ -23,7 +23,7 @@ const LocationLinksList = () => {
         <LocationLinksListItem
           key={key}
           name={locations[key].name}
-          image={locations[key].image}
+          image={locations[key].illustration}
           href={locations[key].url}
         />
       ))}
