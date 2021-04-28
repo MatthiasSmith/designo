@@ -6,13 +6,15 @@ const StyledButtonLink = styled.a`
   background: ${(props) => (props.primary ? 'var(--color-primary)' : 'white')};
   border: none;
   border-radius: 0.5rem;
-  color: var(--dark-gray);
+  color: ${(props) => (props.primary ? 'white' : 'var(--dark-gray)')};
   cursor: pointer;
   font-weight: var(--font-weight-medium);
   font-size: 0.9375rem;
   font-family: var(--font-family);
   letter-spacing: 1px;
-  padding: 1.0625rem 1.1875rem;
+  min-width: 9.5rem;
+  padding: 1.0315rem 1rem;
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   transition: all 0.3s ease-out;

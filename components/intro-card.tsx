@@ -4,8 +4,10 @@ import styled, { css } from 'styled-components';
 import { DESKTOP_BP, TABLET_BP } from '../constants/constants';
 
 const StyledPageIntroCard = styled.div`
-  padding-left: 0;
-  padding-right: 0;
+  &.card {
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   .text-container {
     display: flex;
@@ -93,7 +95,7 @@ const StyledSideContentContainer = styled.div`
   }
 
   @media screen and (min-width: ${DESKTOP_BP}em) {
-    order: 2; // always order as 2 on desktop
+    order: 2; // always order 2 on desktop
   }
 `;
 
@@ -119,7 +121,7 @@ const IntroCard = ({
       className='card flex-col flex-row-gt-md'
       paddingTopBottom={paddingTopBottom}
       bgImagePosition={bgImagePosition}
-      sideContent={sideContent}
+      sideContent={!!sideContent}
       sideContentOrder={sideContentOrder}
     >
       <div className='text-container'>
