@@ -9,9 +9,9 @@ const StyledProjectList = styled.ul`
   @media screen and (min-width: ${DESKTOP_BP}em) {
     display: grid;
     grid-auto-rows: 1fr;
-    grid-template-columns: repeat(auto-fill, minmax(21.875rem, 1fr));
-    column-gap: 1.875rem;
-    row-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(21.875rem, max-content));
+    gap: 2rem 1.875rem;
+    justify-items: center;
     justify-content: center;
     margin: 0 auto;
   }
