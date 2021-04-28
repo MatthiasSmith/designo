@@ -19,18 +19,22 @@ const StyledBgImages = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
   z-index: -1;
 
   .leaf-bg-top {
     display: ${(props) => (props.hideTopImage ? 'none' : 'block')};
-    top: ${(props) => (props.useAlternative ? '59%' : '35%')};
+    top: ${(props) => (props.useAlternative ? '27rem' : '17.75rem')};
   }
 
   .leaf-bg-bottom {
     display: ${(props) => (props.useAlternative ? 'block' : 'none')};
-    top: 200%;
-    right: 0;
+    top: ${(props) =>
+      props.route === '/'
+        ? '152.25rem'
+        : props.route === '/about'
+        ? '148rem'
+        : '100rem'};
+    right: ${(props) => (props.route === '/about' ? '-23rem' : '0')};
     transform: rotate(180deg);
   }
 `;
@@ -43,7 +47,7 @@ const Layout = ({
   pageTitle?: string;
 }) => {
   const router = useRouter();
-  const useAlternativeBgImagesStyles =
+  const useAlternativeBgImageStyles =
     router.asPath === '/' ||
     router.asPath === '/about' ||
     router.asPath === '/contact';
@@ -60,8 +64,9 @@ const Layout = ({
       <Header></Header>
       <StyledBgImages
         className='hidden-sm hidden-md'
-        useAlternative={useAlternativeBgImagesStyles}
+        useAlternative={useAlternativeBgImageStyles}
         hideTopImage={hideTopBgImage}
+        route={router.asPath}
       >
         <div className='bg-image leaf-bg-top'>
           <Image

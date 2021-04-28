@@ -58,6 +58,11 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
   }
 
+  #__next {
+    overflow: hidden;
+    position: relative;
+  }
+
   header,
   main {
     margin: 0 auto;
