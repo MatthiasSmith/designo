@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
 import GetInTouchCard from './get-in-touch-card';
+import Nav from '../nav';
 
 const StyledFooter = styled.footer`
   .dark-bg {
@@ -24,20 +24,6 @@ const StyledFooter = styled.footer`
 
   .logo-container {
     text-align: center;
-  }
-
-  .footer-nav {
-    margin-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    width: 100%;
-
-    li {
-      color: white;
-      font-size: 0.875rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-top: 2rem;
-    }
   }
 
   .bottom-content-container {
@@ -70,17 +56,6 @@ const StyledFooter = styled.footer`
 
     .logo-container {
       text-align: unset;
-    }
-
-    .footer-nav {
-      border: none;
-      margin-top: 0;
-      width: unset;
-
-      li {
-        margin-top: 0;
-        margin-left: 2.625rem;
-      }
     }
 
     .bottom-content-container {
@@ -116,41 +91,7 @@ const Footer = () => {
     <StyledFooter isContactPage={isContactPage}>
       {!isContactPage && <GetInTouchCard />}
       <div className='dark-bg flex-col flex-centered'>
-        <div className='flex-row-gt-sm full-width nav-row-container'>
-          <div className='flex logo-container'>
-            <Link href='/'>
-              <a>
-                <Image
-                  src='/shared/desktop/logo-light.png'
-                  quality='100'
-                  layout='fixed'
-                  height={27}
-                  width={202}
-                  alt='Designo home.'
-                />
-              </a>
-            </Link>
-          </div>
-          <nav className='footer-nav'>
-            <ul className='text-center flex-row-gt-sm'>
-              <li>
-                <Link href='/about'>
-                  <a className='link-text'>Our company</a>
-                </Link>
-              </li>
-              <li>
-                <Link href='/locations'>
-                  <a className='link-text'>Locations</a>
-                </Link>
-              </li>
-              <li>
-                <Link href='/contact'>
-                  <a className='link-text'>Contact</a>
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
+        <Nav isFooter={true} />
         <div className='bottom-content-container flex-row-gt-sm space-between full-width'>
           <div className='address-container flex-col'>
             <strong>Designo Central Office</strong>
