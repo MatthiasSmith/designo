@@ -7,7 +7,7 @@ import ResponsiveImage from '../components/responsive-image';
 import pages from '../data/pages';
 import { DESKTOP_BP, TABLET_BP } from '../constants/constants';
 import AboutCard from '../components/pages/about/about-card';
-import LocationLinksList from '../components/pages/about/location-links-list';
+import LocationLinksList from '../components/location-links/location-links-list';
 
 const StyledContainer = styled.div`
   padding-bottom: 7.5rem;
