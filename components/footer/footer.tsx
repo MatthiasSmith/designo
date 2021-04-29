@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
 import GetInTouchCard from './get-in-touch-card';
 import Nav from '../nav';
+import SocialMediaLinks from './social-media-links';
 
 const StyledFooter = styled.footer`
   .dark-bg {
@@ -36,15 +36,6 @@ const StyledFooter = styled.footer`
     line-height: 1.625rem;
     margin-top: 2.5rem;
     text-align: center;
-  }
-
-  .social-links-list {
-    justify-content: center;
-    margin-top: 2.5rem;
-
-    li:not(:last-of-type) {
-      margin-right: 1rem;
-    }
   }
 
   @media screen and (min-width: ${TABLET_BP}em) {
@@ -103,58 +94,7 @@ const Footer = () => {
             <span className='bold-gt-sm'>P : +1 253-863-8967</span>
             <span className='bold-gt-sm'>M : contact@designo.co</span>
           </div>
-          <ul className='social-links-list flex-row'>
-            <li>
-              <a>
-                <Image
-                  src='/shared/desktop/icon-facebook.svg'
-                  layout='fixed'
-                  height={24}
-                  width={24}
-                />
-              </a>
-            </li>
-            <li>
-              <a>
-                <Image
-                  src='/shared/desktop/icon-youtube.svg'
-                  layout='fixed'
-                  height={24}
-                  width={24}
-                />
-              </a>
-            </li>
-            <li>
-              <a>
-                <Image
-                  src='/shared/desktop/icon-twitter.svg'
-                  layout='fixed'
-                  height={24}
-                  width={24}
-                />
-              </a>
-            </li>
-            <li>
-              <a>
-                <Image
-                  src='/shared/desktop/icon-pinterest.svg'
-                  layout='fixed'
-                  height={24}
-                  width={24}
-                />
-              </a>
-            </li>
-            <li>
-              <a>
-                <Image
-                  src='/shared/desktop/icon-instagram.svg'
-                  layout='fixed'
-                  height={24}
-                  width={24}
-                />
-              </a>
-            </li>
-          </ul>
+          <SocialMediaLinks />
         </div>
       </div>
     </StyledFooter>
