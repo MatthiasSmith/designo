@@ -9,8 +9,9 @@ import GetInTouchCard from './get-in-touch-card';
 const StyledFooter = styled.footer`
   .dark-bg {
     background-color: var(--black);
-    margin-top: -12rem;
-    padding: 15.8125rem var(--site-side-padding) 4rem;
+    margin-top: ${(props) => (props.isContactPage ? '0' : '-12rem')};
+    padding: ${(props) => (props.isContactPage ? '4rem' : '15.8125rem')}
+      var(--site-side-padding) 4rem;
   }
 
   .nav-row-container,
@@ -62,8 +63,9 @@ const StyledFooter = styled.footer`
 
   @media screen and (min-width: ${TABLET_BP}em) {
     .dark-bg {
-      margin-top: -5.25rem;
-      padding: 10rem var(--site-side-padding-md) 5rem;
+      margin-top: ${(props) => (props.isContactPage ? '0' : '-5.25rem')};
+      padding: ${(props) => (props.isContactPage ? '3.75rem' : '10rem')}
+        var(--site-side-padding-md) 3.75rem;
     }
 
     .logo-container {
@@ -99,18 +101,20 @@ const StyledFooter = styled.footer`
 
   @media screen and (min-width: ${DESKTOP_BP}em) {
     .dark-bg {
-      margin-top: -4.5rem;
-      padding: 9rem var(--site-side-padding-md) 4.5rem;
+      margin-top: ${(props) => (props.isContactPage ? '0' : '-4.5rem')};
+      padding: ${(props) => (props.isContactPage ? '4.5rem' : '9rem')}
+        var(--site-side-padding-md) 4.5rem;
     }
   }
 `;
 
 const Footer = () => {
   const router = useRouter();
+  const isContactPage = router.asPath === '/contact';
 
   return (
-    <StyledFooter>
-      {router.asPath === '/contact' ? null : <GetInTouchCard />}
+    <StyledFooter isContactPage={isContactPage}>
+      {!isContactPage && <GetInTouchCard />}
       <div className='dark-bg flex-col flex-centered'>
         <div className='flex-row-gt-sm full-width nav-row-container'>
           <div className='flex logo-container'>
