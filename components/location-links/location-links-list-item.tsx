@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
-import ButtonLink from '../../button-link';
-import { DESKTOP_BP } from '../../../constants/constants';
+import ButtonLink from '../button-link';
+import { DESKTOP_BP } from '../../constants/constants';
 
 const StyledLocationLinksListItem = styled.li`
   .img-container {

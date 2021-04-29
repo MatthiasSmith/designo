@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { DESKTOP_BP } from '../../../constants/constants';
+import { DESKTOP_BP } from '../../constants/constants';
 
-import locations from '../../../data/locations';
+import locations from '../../data/locations';
 import LocationLinksListItem from './location-links-list-item';
 
 const StyledLocationLinksList = styled.ul`
