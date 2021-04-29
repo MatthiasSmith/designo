@@ -33,9 +33,15 @@ const StyledBgImages = styled.div`
         ? '152.25rem'
         : props.route === '/about'
         ? '148rem'
-        : '100rem'};
-    right: ${(props) => (props.route === '/about' ? '-23rem' : '0')};
-    transform: rotate(180deg);
+        : '56.5rem'};
+    right: ${(props) =>
+      props.route === '/about'
+        ? '-23rem'
+        : props.route === '/contact'
+        ? '-27rem'
+        : '0'};
+    transform: ${(props) =>
+      props.route !== '/contact' ? 'rotate(180deg)' : undefined};
   }
 `;
 
