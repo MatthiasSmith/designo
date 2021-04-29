@@ -5,6 +5,7 @@ import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
 import GetInTouchCard from './get-in-touch-card';
 import Nav from '../nav';
 import SocialMediaLinks from './social-media-links';
+import AddressContactInfo from './address-contact-info';
 
 const StyledFooter = styled.footer`
   .dark-bg {
@@ -30,14 +31,6 @@ const StyledFooter = styled.footer`
     align-items: center;
   }
 
-  .address-container {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 1rem;
-    line-height: 1.625rem;
-    margin-top: 2.5rem;
-    text-align: center;
-  }
-
   @media screen and (min-width: ${TABLET_BP}em) {
     .dark-bg {
       margin-top: ${(props) => (props.isContactPage ? '0' : '-5.25rem')};
@@ -53,11 +46,6 @@ const StyledFooter = styled.footer`
       align-items: flex-end;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       margin-top: 2.5rem;
-    }
-
-    .address-container {
-      margin-top: 1.9375rem;
-      text-align: unset;
     }
 
     .bold-gt-sm {
@@ -84,16 +72,7 @@ const Footer = () => {
       <div className='dark-bg flex-col flex-centered'>
         <Nav isFooter={true} />
         <div className='bottom-content-container flex-row-gt-sm space-between full-width'>
-          <div className='address-container flex-col'>
-            <strong>Designo Central Office</strong>
-            <span>3886 Wellington Street</span>
-            <span>Toronto, Ontario M9C 3J5</span>
-          </div>
-          <div className='address-container flex-col'>
-            <strong>Contact Us (Central Office)</strong>
-            <span className='bold-gt-sm'>P : +1 253-863-8967</span>
-            <span className='bold-gt-sm'>M : contact@designo.co</span>
-          </div>
+          <AddressContactInfo />
           <SocialMediaLinks />
         </div>
       </div>
