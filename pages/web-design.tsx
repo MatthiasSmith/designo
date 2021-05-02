@@ -1,10 +1,10 @@
 import Layout from '../components/layout/layout';
 import ContentContainer from '../components/layout/content-container';
 import IntroCard from '../components/intro-card';
-import ResponsiveImage from '../components/responsive-image';
 import designPageImages from '../data/design-page-images';
 import ProjectList from '../components/projects/project-list';
 import ProductLinksList from '../components/products/product-links-list';
+import { DESKTOP_BP, TABLET_BP } from '../constants/constants';
 
 export default function WebDesign() {
   return (
@@ -13,13 +13,17 @@ export default function WebDesign() {
         title='Web Design'
         text='We build websites that serve as powerful marketing tools and bring memorable brand experiences.'
         bgImage={
-          <ResponsiveImage
-            imageSources={designPageImages}
-            layout='fixed'
-            width={876}
-            height={584}
-            priority={true}
-          />
+          <picture>
+            <source
+              media={`(min-width: ${DESKTOP_BP}em)`}
+              srcSet={designPageImages.web.lg}
+            />
+            <source
+              media={`(min-width: ${TABLET_BP}em)`}
+              srcSet={designPageImages.web.md}
+            />
+            <img src={designPageImages.web.sm} alt='' />
+          </picture>
         }
       />
       <ContentContainer>

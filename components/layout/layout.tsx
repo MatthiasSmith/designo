@@ -23,7 +23,7 @@ const StyledBgImages = styled.div`
 
   .leaf-bg-top {
     display: ${(props) => (props.hideTopImage ? 'none' : 'block')};
-    top: ${(props) => (props.useAlternative ? '27rem' : '17.75rem')};
+    top: ${(props) => (props.useAlternative ? '27rem' : '18.25rem')};
   }
 
   .leaf-bg-bottom {

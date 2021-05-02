@@ -9,18 +9,14 @@ const StyledPageIntroCard = styled.div`
     padding-right: 0;
   }
 
-  .text-container {
+  .content-container {
     display: flex;
     flex-flow: column;
     flex: 1;
     justify-content: center;
     align-items: center;
     text-align: center;
-    order: ${(props) =>
-      props.sideContentOrder && props.sideContentOrder === 1 ? 2 : 1};
-    padding: ${(props) =>
-        props.paddingTopBottom ? `${props.paddingTopBottom}` : '6.5625rem'}
-      var(--site-side-padding);
+    padding: 6.5625rem var(--site-side-padding);
     position: relative;
   }
 
@@ -30,20 +26,14 @@ const StyledPageIntroCard = styled.div`
   }
 
   .bg-image {
-    top: ${(props) =>
-      props.bgImagePosition && props.bgImagePosition.top
-        ? `${props.bgImagePosition.top}`
-        : '0'};
-    right: ${(props) =>
-      props.bgImagePosition && props.bgImagePosition.right
-        ? `${props.bgImagePosition.right}`
-        : '31.15rem'};
+    top: 0;
+    right: 31.15rem;
   }
 
   @media screen and (min-width: ${TABLET_BP}em) {
     border-radius: var(--border-radius);
 
-    .text-container {
+    .content-container {
       padding-top: 4rem;
       padding-bottom: 4rem;
     }
@@ -58,82 +48,43 @@ const StyledPageIntroCard = styled.div`
     max-height: 30rem;
 
     ${(props) =>
-      props.sideContent
+      props.bgImagePosition
         ? css`
-            .text-container {
-              align-items: unset;
-              text-align: left;
-              padding-left: 5.9375rem;
-              padding-right: 5.9375rem;
-            }
-
-            .content-text {
-              margin-top: 2rem;
-            }
-
             .bg-image {
-              top: -33.5%;
-              right: 10%;
+              top: ${props.bgImagePosition.top};
+              right: ${props.bgImagePosition.right};
             }
           `
         : css`
             .bg-image {
-              top: -66%;
-              right: -10.5%;
+              top: -10.25rem;
+              right: -7.5rem;
             }
           `}
-  }
-`;
-
-const StyledSideContentContainer = styled.div`
-  order: ${(props) => (props.sideContentOrder ? props.sideContentOrder : 2)};
-
-  img {
-    width: 100%;
-    max-width: 100%;
-    max-height: 100%;
-  }
-
-  @media screen and (min-width: ${DESKTOP_BP}em) {
-    order: 2; // always order 2 on desktop
   }
 `;
 
 const IntroCard = ({
   title,
   text,
-  sideContent,
-  sideContentOrder,
   bgImage,
   bgImagePosition,
-  paddingTopBottom,
 }: {
   title: string;
   text: string;
-  sideContent?: React.ReactNode;
-  sideContentOrder?: number;
   bgImage: React.ReactNode;
-  bgImagePosition?: any;
-  paddingTopBottom?: string;
+  bgImagePosition?: { top: string; right: string };
 }) => {
   return (
     <StyledPageIntroCard
       className='card flex-col flex-row-gt-md'
-      paddingTopBottom={paddingTopBottom}
       bgImagePosition={bgImagePosition}
-      sideContent={!!sideContent}
-      sideContentOrder={sideContentOrder}
     >
-      <div className='text-container'>
+      <div className='content-container'>
         <div className='bg-image'>{bgImage}</div>
         <h1 className='heading-lg'>{title}</h1>
         <p className='content-text'>{text}</p>
       </div>
-      {sideContent ? (
-        <StyledSideContentContainer sideContentOrder={sideContentOrder}>
-          {sideContent}
-        </StyledSideContentContainer>
-      ) : null}
     </StyledPageIntroCard>
   );
 };
