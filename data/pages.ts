@@ -4,6 +4,23 @@ const pages = {
   app: {},
   graphic: {},
   about: {
+    hero: {
+      lg: {
+        src: '/about/desktop/image-about-hero.jpg',
+        width: 476,
+        height: 480,
+      },
+      md: {
+        src: '/about/tablet/image-about-hero.jpg',
+        width: 689,
+        height: 320,
+      },
+      sm: {
+        src: '/about/mobile/image-about-hero.jpg',
+        width: 375,
+        height: 320,
+      },
+    },
     introBg: {
       lg: {
         src: '/about/desktop/bg-pattern-hero-about-desktop.svg',

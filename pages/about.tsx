@@ -8,6 +8,7 @@ import pages from '../data/pages';
 import { DESKTOP_BP, TABLET_BP } from '../constants/constants';
 import AboutCard from '../components/pages/about/about-card';
 import LocationLinksList from '../components/location-links/location-links-list';
+import AboutIntroCard from '../components/pages/about/about-intro-card';
 
 const StyledContainer = styled.div`
   padding-bottom: 7.5rem;
@@ -31,33 +32,7 @@ const About = () => {
 
   return (
     <Layout pageTitle='About Us'>
-      <IntroCard
-        title='About Us'
-        text='Founded in 2010, we are a creative agency that produces lasting results for our clients. We’ve partnered with many startups, corporations, and nonprofits alike to craft designs that make real impact. We’re always looking forward to creating brands, products, and digital experiences that connect with our clients’ audiences.'
-        bgImage={
-          <ResponsiveImage
-            imageSources={pages.about.introBg}
-            layout='fixed'
-            priority={true}
-          />
-        }
-        bgImagePosition={introBgImagePosition}
-        paddingTopBottom='5rem'
-        sideContent={
-          <picture>
-            <source
-              media={`(min-width: ${DESKTOP_BP}em)`}
-              srcSet='/about/desktop/image-about-hero.jpg'
-            />
-            <source
-              media={`(min-width: ${TABLET_BP}em)`}
-              srcSet='/about/tablet/image-about-hero.jpg'
-            />
-            <img src='/about/mobile/image-about-hero.jpg' alt='' />
-          </picture>
-        }
-        sideContentOrder={1}
-      />
+      <AboutIntroCard />
       <StyledContainer>
         <AboutCard
           imageSources={imageSources.worldClassTalent}
