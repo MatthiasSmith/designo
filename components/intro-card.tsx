@@ -20,9 +20,16 @@ const StyledPageIntroCard = styled.div`
     position: relative;
   }
 
+  .heading-lg {
+    animation: fade-in-move-down 0.6s ease-out 0.5s forwards;
+    opacity: 0;
+  }
+
   .content-text {
+    animation: fade-in-move-down 0.6s ease-out 0.75s forwards;
     margin-top: 1.5rem;
     max-width: 25rem;
+    opacity: 0;
   }
 
   .bg-image {
@@ -61,6 +68,16 @@ const StyledPageIntroCard = styled.div`
               right: -7.5rem;
             }
           `}
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .heading-lg {
+      animation: fade-in 0.6s ease-out 0.5s forwards;
+    }
+
+    .content-text {
+      animation: fade-in 0.6s ease-out 0.75s forwards;
+    }
   }
 `;
 
