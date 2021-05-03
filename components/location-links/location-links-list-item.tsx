@@ -1,11 +1,36 @@
 import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
+import { Scene } from 'react-scrollmagic';
+
 import ButtonLink from '../button-link';
 import { DESKTOP_BP } from '../../constants/constants';
 import addFadeInImageClass from '../../helpers/add-fade-in-image-class';
 
 const StyledLocationLinksListItem = styled.li`
+  &.animatable {
+    transition: all 0.6s ease-out;
+    opacity: 0;
+    transform: translateY(2rem);
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      transform: unset;
+    }
+  }
+
+  &.fade-in.animatable {
+    opacity: 1;
+    transform: translate(0rem, 0rem);
+  }
+
+  &:nth-of-type(2) {
+    transition-delay: 0.25s;
+  }
+
+  &:nth-of-type(3) {
+    transition-delay: 0.5s;
+  }
+
   .img-container {
     margin: 0 auto;
     position: relative;
@@ -57,30 +82,32 @@ const LocationLinksListItem = ({
   href: string;
 }) => {
   return (
-    <StyledLocationLinksListItem>
-      <div className='img-container'>
-        <div className='bg-image' aria-hidden='true'>
+    <Scene classToggle='fade-in' offset={-70} reverse={false}>
+      <StyledLocationLinksListItem className='animatable'>
+        <div className='img-container'>
+          <div className='bg-image' aria-hidden='true'>
+            <Image
+              src='/shared/desktop/bg-pattern-small-circle.svg'
+              layout='fill'
+              alt=''
+            />
+          </div>
           <Image
-            src='/shared/desktop/bg-pattern-small-circle.svg'
-            layout='fill'
+            className='opacity-0'
+            src={image.src}
+            layout='fixed'
+            width={image.width}
+            height={image.height}
             alt=''
+            onLoad={addFadeInImageClass}
           />
         </div>
-        <Image
-          className='opacity-0'
-          src={image.src}
-          layout='fixed'
-          width={image.width}
-          height={image.height}
-          alt=''
-          onLoad={addFadeInImageClass}
-        />
-      </div>
-      <h2 className='heading-sm'>{name}</h2>
-      <ButtonLink className='location-link-btn' href={href} primary={true}>
-        See location
-      </ButtonLink>
-    </StyledLocationLinksListItem>
+        <h2 className='heading-sm'>{name}</h2>
+        <ButtonLink className='location-link-btn' href={href} primary={true}>
+          See location
+        </ButtonLink>
+      </StyledLocationLinksListItem>
+    </Scene>
   );
 };
 
