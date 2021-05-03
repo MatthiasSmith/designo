@@ -1,8 +1,8 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { Scene } from 'react-scrollmagic';
 
 import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
 import ResponsiveImage from '../responsive-image';
@@ -10,8 +10,29 @@ import ResponsiveImage from '../responsive-image';
 const Styled = styled.li`
   border-radius: var(--border-radius);
   color: white;
+  opacity: 0;
   overflow: hidden;
   position: relative;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateX(50%);
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    transition: opacity 0.6s ease-out;
+    transform: unset !important; // override the desktop setting for the first element
+  }
+
+  &.fade-in {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  &:nth-of-type(2) {
+    transition-delay: 0.25s;
+  }
+
+  &:nth-of-type(3) {
+    transition-delay: 0.5s;
+  }
 
   &:not(:first-of-type) {
     margin-top: 1.5rem;
@@ -52,6 +73,10 @@ const Styled = styled.li`
   }
 
   @media screen and (min-width: ${DESKTOP_BP}em) {
+    &:first-of-type:not(.fade-in) {
+      transform: translateX(-50%);
+    }
+
     ${(props) =>
       props.isHome
         ? css`
@@ -98,9 +123,14 @@ const ProductLinkListItem = ({
   const isHomePage = router.asPath === '/';
 
   return (
-    <>
+    <Scene
+      classToggle='fade-in'
+      triggerElement='.product-link-item'
+      reverse={false}
+      offset={-100}
+    >
       {router.asPath !== productRoute && (
-        <Styled isHome={isHomePage}>
+        <Styled className='product-link-item' isHome={isHomePage}>
           <div className='bg-image' aria-hidden='true'>
             <ResponsiveImage
               imageSources={bgImages}
@@ -127,7 +157,7 @@ const ProductLinkListItem = ({
           </Link>
         </Styled>
       )}
-    </>
+    </Scene>
   );
 };
 

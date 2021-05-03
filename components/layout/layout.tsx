@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { Controller } from 'react-scrollmagic';
 
 import { TABLET_BP } from '../../constants/constants';
 import Header from '../header/header';
@@ -70,32 +71,34 @@ const Layout = ({
           Designo Agency Website Challenge {pageTitle ? `| ${pageTitle}` : ''}
         </title>
       </Head>
-      <Header></Header>
-      <StyledBgImages
-        className='hidden-sm hidden-md'
-        useAlternative={useAlternativeBgImageStyles}
-        hideTopImage={hideTopBgImage}
-        route={router.asPath}
-      >
-        <div className='bg-image leaf-bg-top'>
-          <Image
-            src='/shared/desktop/bg-pattern-leaf.svg'
-            layout='fixed'
-            width={1006}
-            height={594}
-          />
-        </div>
-        <div className='bg-image leaf-bg-bottom'>
-          <Image
-            src='/shared/desktop/bg-pattern-leaf.svg'
-            layout='fixed'
-            width={1006}
-            height={594}
-          />
-        </div>
-      </StyledBgImages>
-      <StyledMain>{children}</StyledMain>
-      <Footer />
+      <Controller>
+        <Header></Header>
+        <StyledBgImages
+          className='hidden-sm hidden-md'
+          useAlternative={useAlternativeBgImageStyles}
+          hideTopImage={hideTopBgImage}
+          route={router.asPath}
+        >
+          <div className='bg-image leaf-bg-top'>
+            <Image
+              src='/shared/desktop/bg-pattern-leaf.svg'
+              layout='fixed'
+              width={1006}
+              height={594}
+            />
+          </div>
+          <div className='bg-image leaf-bg-bottom'>
+            <Image
+              src='/shared/desktop/bg-pattern-leaf.svg'
+              layout='fixed'
+              width={1006}
+              height={594}
+            />
+          </div>
+        </StyledBgImages>
+        <StyledMain>{children}</StyledMain>
+        <Footer />
+      </Controller>
     </>
   );
 };

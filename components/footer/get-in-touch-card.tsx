@@ -1,14 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
-import ButtonLink from '../button-link';
+import { Scene } from 'react-scrollmagic';
 
+import ButtonLink from '../button-link';
 import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
 
 const Styled = styled.div`
   margin: 0 auto;
   max-width: var(--site-content-max-width);
   padding: 0 var(--site-side-padding);
+
+  .animatable {
+    transition: all 0.6s ease-out;
+    opacity: 0;
+    transform: translateY(-2rem);
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      transition: opacity 0.6s ease-out;
+      transform: unset;
+    }
+  }
+
+  &.fade-in .animatable {
+    opacity: 1;
+    transform: translate(0rem, 0rem);
+  }
 
   .card {
     border-radius: var(--border-radius);
@@ -34,10 +51,12 @@ const Styled = styled.div`
 
   .get-in-touch-text {
     margin-top: 1rem;
+    transition-delay: 0.25s;
   }
 
-  .get-in-touch-link {
+  .btn-container {
     margin: 2rem auto 0;
+    transition-delay: 0.5s;
   }
 
   @media screen and (min-width: ${TABLET_BP}em) {
@@ -81,7 +100,7 @@ const Styled = styled.div`
       align-items: unset;
     }
 
-    .get-in-touch-link {
+    .btn-container {
       margin-top: 0;
     }
   }
@@ -89,31 +108,37 @@ const Styled = styled.div`
 
 const GetInTouchCard = () => {
   return (
-    <Styled>
-      <article className='card'>
-        <div className='bg-image'>
-          <Image
-            src='/shared/desktop/bg-pattern-call-to-action.svg'
-            alt=''
-            layout='fixed'
-            width={876}
-            height={584}
-          />
-        </div>
-        <div className='content-container flex-col flex-centered flex-row-gt-md'>
-          <div className='text-container flex-col'>
-            <h2 className='heading-lg'>Let’s talk about your project</h2>
-            <p className='get-in-touch-text'>
-              Ready to take it to the next level? Contact us today and find out
-              how our expertise can help your business grow.
-            </p>
+    <Scene classToggle='fade-in' offset={-100} reverse={false}>
+      <Styled>
+        <article className='card'>
+          <div className='bg-image'>
+            <Image
+              src='/shared/desktop/bg-pattern-call-to-action.svg'
+              alt=''
+              layout='fixed'
+              width={876}
+              height={584}
+            />
           </div>
-          <ButtonLink href='/contact' className='get-in-touch-link'>
-            Get in touch
-          </ButtonLink>
-        </div>
-      </article>
-    </Styled>
+          <div className='content-container flex-col flex-centered flex-row-gt-md'>
+            <div className='text-container flex-col'>
+              <h2 className='heading-lg animatable'>
+                Let’s talk about your project
+              </h2>
+              <p className='get-in-touch-text animatable'>
+                Ready to take it to the next level? Contact us today and find
+                out how our expertise can help your business grow.
+              </p>
+            </div>
+            <div className='btn-container animatable'>
+              <ButtonLink href='/contact' className='get-in-touch-link'>
+                Get in touch
+              </ButtonLink>
+            </div>
+          </div>
+        </article>
+      </Styled>
+    </Scene>
   );
 };
 
