@@ -159,6 +159,7 @@ const Nav = ({ isFooter }: { isFooter?: boolean }) => {
               height={20}
               layout='fixed'
               alt=''
+              priority={true}
             />
           </Button>
         )}
