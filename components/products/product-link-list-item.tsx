@@ -123,41 +123,43 @@ const ProductLinkListItem = ({
   const isHomePage = router.asPath === '/';
 
   return (
-    <Scene
-      classToggle='fade-in'
-      triggerElement='.product-link-item'
-      reverse={false}
-      offset={-100}
-    >
+    <>
       {router.asPath !== productRoute && (
-        <Styled className='product-link-item' isHome={isHomePage}>
-          <div className='bg-image' aria-hidden='true'>
-            <ResponsiveImage
-              imageSources={bgImages}
-              imageIndex={isHomePage ? 0 : 1}
-              layout='fill'
-              objectFit='cover'
-              alt=''
-            />
-          </div>
-          <Link href={href}>
-            <a>
-              <div className='top-layer content-container text-center text-uppercase'>
-                <h2 className='heading-md'>{title}</h2>
-                <span className='link-text'>View Projects</span>
-                <Image
-                  src='/shared/desktop/icon-right-arrow.svg'
-                  layout='fixed'
-                  width={7}
-                  height={10}
-                  alt=''
-                />
-              </div>
-            </a>
-          </Link>
-        </Styled>
+        <Scene
+          classToggle='fade-in'
+          triggerElement='.product-link-item'
+          reverse={false}
+          offset={-100}
+        >
+          <Styled className='product-link-item' isHome={isHomePage}>
+            <div className='bg-image' aria-hidden='true'>
+              <ResponsiveImage
+                imageSources={bgImages}
+                imageIndex={isHomePage ? 0 : 1}
+                layout='fill'
+                objectFit='cover'
+                alt=''
+              />
+            </div>
+            <Link href={href}>
+              <a>
+                <div className='top-layer content-container text-center text-uppercase'>
+                  <h2 className='heading-md'>{title}</h2>
+                  <span className='link-text'>View Projects</span>
+                  <Image
+                    src='/shared/desktop/icon-right-arrow.svg'
+                    layout='fixed'
+                    width={7}
+                    height={10}
+                    alt=''
+                  />
+                </div>
+              </a>
+            </Link>
+          </Styled>
+        </Scene>
       )}
-    </Scene>
+    </>
   );
 };
 
