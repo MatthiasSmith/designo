@@ -4,6 +4,7 @@ import Image from 'next/image';
 
 import { DESKTOP_BP, TABLET_BP } from '../../../constants/constants';
 import ResponsiveImage from '../../responsive-image';
+import addFadeInImageClass from '../../../helpers/add-fade-in-image-class';
 
 const StyledLocationListItem = styled.li`
   overflow: hidden;
@@ -136,10 +137,12 @@ const LocationListItem = ({ location }: { location: iLocation }) => {
       <div className='content-container flex-col flex-centered flex'>
         <div className='bg-image'>
           <Image
+            className='opacity-0'
             src='/shared/desktop/bg-pattern-three-circles.svg'
             layout='fixed'
             width='584'
             height='584'
+            onLoad={addFadeInImageClass}
           />
         </div>
         <h2 className='heading-lg'>{location.name}</h2>

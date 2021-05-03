@@ -9,6 +9,9 @@ import Header from '../header/header';
 import Footer from '../footer/footer';
 
 const StyledMain = styled.main`
+  animation: fade-in 0.3s ease-out forwards;
+  opacity: 0;
+
   @media screen and (min-width: ${TABLET_BP}em) {
     padding: 0 var(--site-side-padding-md);
   }

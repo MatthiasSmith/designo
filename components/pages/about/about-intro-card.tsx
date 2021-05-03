@@ -6,10 +6,10 @@ import pages from '../../../data/pages';
 import ResponsiveImage from '../../responsive-image';
 
 const StyledAboutIntroCard = styled.div`
+  background-color: var(--color-primary);
   overflow: hidden;
 
   .content-container {
-    background-color: var(--color-primary);
     color: white;
     overflow: hidden;
     padding: 5rem var(--site-side-padding);
@@ -23,9 +23,21 @@ const StyledAboutIntroCard = styled.div`
     right: 31.35rem;
   }
 
+  .img-container {
+    animation: fade-in 0.6s ease-out 0s forwards;
+    opacity: 0;
+  }
+
+  .heading-lg {
+    animation: fade-in-move-down 0.6s ease-out 0.5s forwards;
+    opacity: 0;
+  }
+
   .content-text {
+    animation: fade-in-move-down 0.6s ease-out 0.75s forwards;
     margin: 1.5rem auto 0;
     max-width: 25rem;
+    opacity: 0;
   }
 
   @media screen and (min-width: ${TABLET_BP}em) {
@@ -60,13 +72,27 @@ const StyledAboutIntroCard = styled.div`
       max-width: 28.625rem;
     }
   }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .heading-lg {
+      animation: fade-in 0.6s ease-out 0.5s forwards;
+    }
+
+    .content-text {
+      animation: fade-in 0.6s ease-out 0.75s forwards;
+    }
+  }
 `;
 
 const AboutIntroCard = () => {
   return (
     <StyledAboutIntroCard className='flex-row-gt-md'>
       <div className='img-container'>
-        <ResponsiveImage imageSources={pages.about.hero} layout='responsive' />
+        <ResponsiveImage
+          imageSources={pages.about.hero}
+          layout='responsive'
+          priority={true}
+        />
       </div>
       <div className='content-container flex-col justify-center'>
         <div className='bg-image'>

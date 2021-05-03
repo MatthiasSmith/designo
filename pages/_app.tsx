@@ -203,6 +203,14 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .fade-in-image {
+    animation: fade-in 0.25s ease-out 0s forwards;
+  }
+
+  .opacity-0 {
+    opacity: 0;
+  }
+
   .top-layer {
     position: relative;
     z-index: 1;
@@ -216,6 +224,41 @@ const GlobalStyle = createGlobalStyle`
     position: absolute;
     white-space: nowrap; 
     width: 1px;
+  }
+
+  // animations
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-in-move-up {
+    0% {
+      opacity: 0;
+      transform: translateY(1.25rem);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0rem);
+    }
+  }
+
+  @keyframes fade-in-move-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-1.25rem);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0rem);
+    }
   }
 
   @media screen and (max-width: ${TABLET_BP - 0.01}em) {

@@ -4,6 +4,7 @@ import Image from 'next/image';
 
 import { DESKTOP_BP, TABLET_BP } from '../../../constants/constants';
 import ButtonLink from '../../button-link';
+import addFadeInImageClass from '../../../helpers/add-fade-in-image-class';
 
 const StyledPageIntroCard = styled.article`
   text-align: center;
@@ -20,24 +21,32 @@ const StyledPageIntroCard = styled.article`
   }
 
   .heading-lg {
+    animation: fade-in-move-down 0.6s ease-out 0.7s forwards;
     max-width: 26.875rem;
+    opacity: 0;
   }
 
   .body-text {
+    animation: fade-in-move-down 0.6s ease-out 0.95s forwards;
     margin-top: 1rem;
     max-width: 26.875rem;
+    opacity: 0;
   }
 
   .learn-more-link {
     margin-top: 2rem;
+    animation: fade-in-move-down 0.6s ease-out 1.2s forwards;
+    opacity: 0;
   }
 
   .img-container {
+    animation: fade-in 1.3s ease-out 0s forwards;
     display: flex;
     justify-content: center;
     position: relative;
     height: 33.85rem;
     margin-top: -5.915rem;
+    opacity: 0;
 
     > div {
       flex: 0 0 auto;
@@ -100,6 +109,20 @@ const StyledPageIntroCard = styled.article`
       margin-top: 2.5rem;
     }
   }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .heading-lg {
+      animation: fade-in 0.6s ease-out 0.7s forwards;
+    }
+
+    .body-text {
+      animation: fade-in 0.6s ease-out 0.95s forwards;
+    }
+
+    .learn-more-link {
+      animation: fade-in 0.6s ease-out 1.2s forwards;
+    }
+  }
 `;
 
 const PageIntroCard = () => {
@@ -112,7 +135,6 @@ const PageIntroCard = () => {
           layout='fixed'
           width={640}
           height={639}
-          objectFit='cover'
         />
       </div>
       <div className='flex-row-gt-md full-width'>
@@ -137,6 +159,7 @@ const PageIntroCard = () => {
             height={913}
             priority={true}
             alt=''
+            onLoad={addFadeInImageClass}
           />
         </div>
       </div>

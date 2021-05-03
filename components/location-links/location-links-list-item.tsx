@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import ButtonLink from '../button-link';
 import { DESKTOP_BP } from '../../constants/constants';
+import addFadeInImageClass from '../../helpers/add-fade-in-image-class';
 
 const StyledLocationLinksListItem = styled.li`
   .img-container {
@@ -66,11 +67,13 @@ const LocationLinksListItem = ({
           />
         </div>
         <Image
+          className='opacity-0'
           src={image.src}
           layout='fixed'
           width={image.width}
           height={image.height}
           alt=''
+          onLoad={addFadeInImageClass}
         />
       </div>
       <h2 className='heading-sm'>{name}</h2>

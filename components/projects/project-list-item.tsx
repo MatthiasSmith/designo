@@ -4,6 +4,8 @@ import { DESKTOP_BP } from '../../constants/constants';
 import ProjectCard from './project-card';
 
 const StyledProjectListItem = styled.li`
+  cursor: pointer;
+
   &:not(:first-of-type) {
     margin-top: 2.5rem;
   }
@@ -24,7 +26,7 @@ const StyledProjectListItem = styled.li`
 const ProjectListItem = ({ project }) => {
   return (
     <StyledProjectListItem className='flex-col'>
-      <a href='#' className='link-card'>
+      <a className='link-card'>
         <ProjectCard
           image={project.image}
           title={project.title}

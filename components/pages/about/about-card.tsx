@@ -4,6 +4,7 @@ import Image from 'next/image';
 
 import ResponsiveImage from '../../../components/responsive-image';
 import { DESKTOP_BP, TABLET_BP } from '../../../constants/constants';
+import addFadeInImageClass from '../../../helpers/add-fade-in-image-class';
 
 const StyledAboutCard = styled.article`
   background-color: var(--light-peach-bg);
@@ -84,10 +85,12 @@ const AboutCard = ({
       <div className='content-container flex-col flex-centered'>
         <div className='bg-image'>
           <Image
+            className='opacity-0'
             src='/shared/desktop/bg-pattern-three-circles.svg'
             layout='fixed'
             width='584'
             height='584'
+            onLoad={addFadeInImageClass}
           />
         </div>
         <h2 className='heading-lg'>{title}</h2>
