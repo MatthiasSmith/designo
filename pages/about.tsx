@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Layout from '../components/layout/layout';
-import IntroCard from '../components/intro-card';
-import ResponsiveImage from '../components/responsive-image';
 import pages from '../data/pages';
 import { DESKTOP_BP, TABLET_BP } from '../constants/constants';
 import AboutCard from '../components/pages/about/about-card';
@@ -24,10 +22,6 @@ const StyledContainer = styled.div`
 `;
 
 const About = () => {
-  const introBgImagePosition = {
-    top: '-8.75rem',
-    right: '31.35rem',
-  };
   const imageSources = pages.about;
 
   return (
