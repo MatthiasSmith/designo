@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { DESKTOP_BP, TABLET_BP } from '../../../constants/constants';
 
-import pages from '../../../data/pages';
+import about from '../../../data/about';
 import ResponsiveImage from '../../responsive-image';
 
 const StyledAboutIntroCard = styled.div`
@@ -89,7 +89,7 @@ const AboutIntroCard = () => {
     <StyledAboutIntroCard className='flex-row-gt-md'>
       <div className='img-container'>
         <ResponsiveImage
-          imageSources={pages.about.hero}
+          imageSources={about.hero}
           layout='responsive'
           priority={true}
           alt=''
@@ -100,13 +100,13 @@ const AboutIntroCard = () => {
           <picture>
             <source
               media={`(min-width: ${DESKTOP_BP}em)`}
-              srcSet={pages.about.introBg.lg.src}
+              srcSet={about.introBg.lg.src}
             />
             <source
               media={`(min-width: ${TABLET_BP}em)`}
-              srcSet={pages.about.introBg.md.src}
+              srcSet={about.introBg.md.src}
             />
-            <img src={pages.about.introBg.sm.src} alt='' />
+            <img src={about.introBg.sm.src} alt='' />
           </picture>
         </div>
         <h1 className='heading-lg'>About Us</h1>

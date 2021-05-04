@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Scene } from 'react-scrollmagic';
 
 import Layout from '../components/layout/layout';
-import pages from '../data/pages';
+import about from '../data/about';
 import { DESKTOP_BP, TABLET_BP } from '../constants/constants';
 import AboutCard from '../components/pages/about/about-card';
 import LocationLinksList from '../components/location-links/location-links-list';
@@ -38,8 +38,6 @@ const StyledContainer = styled.div`
 `;
 
 const About = () => {
-  const imageSources = pages.about;
-
   return (
     <Layout pageTitle='About Us'>
       <AboutIntroCard />
@@ -47,7 +45,7 @@ const About = () => {
         <Scene classToggle='fade-in' reverse={false}>
           <div className='animatable'>
             <AboutCard
-              imageSources={imageSources.worldClassTalent}
+              imageSources={about.worldClassTalent}
               title='World-class talent'
             >
               <p>
@@ -70,7 +68,7 @@ const About = () => {
         <Scene classToggle='fade-in' reverse={false}>
           <div className='animatable'>
             <AboutCard
-              imageSources={imageSources.theRealDeal}
+              imageSources={about.theRealDeal}
               title='The real deal'
               flipSides={true}
             >
