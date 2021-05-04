@@ -4,8 +4,6 @@ import styled from 'styled-components';
 import { DESKTOP_BP, TABLET_BP } from '../../../constants/constants';
 import ContactForm from './contact-form';
 
-// import ResponsiveImage from
-
 const StyledContactIntroCard = styled.div`
   background-color: var(--color-primary);
   color: white;
@@ -24,13 +22,20 @@ const StyledContactIntroCard = styled.div`
     }
   }
 
+  .heading-lg {
+    animation: fade-in-move-down 0.6s ease-out 0.5s forwards;
+    opacity: 0;
+  }
+
   .content-container {
     padding-bottom: 3rem;
     text-align: center;
   }
 
   .content-text {
+    animation: fade-in-move-down 0.6s ease-out 0.75s forwards;
     margin-top: 1.5rem;
+    opacity: 0;
   }
 
   @media screen and (min-width: ${TABLET_BP}em) {
@@ -64,6 +69,16 @@ const StyledContactIntroCard = styled.div`
     .content-container {
       flex: 1;
       margin-right: 5rem;
+    }
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .heading-lg {
+      animation: fade-in 0.6s ease-out 0.5s forwards;
+    }
+
+    .content-text {
+      animation: fade-in 0.6s ease-out 0.75s forwards;
     }
   }
 `;

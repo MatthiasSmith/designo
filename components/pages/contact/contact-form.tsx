@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { DESKTOP_BP, TABLET_BP } from '../../../constants/constants';
 
+import { DESKTOP_BP, TABLET_BP } from '../../../constants/constants';
 import Button from '../../button';
 import FormField from '../../form-field';
 
 const StyledContactForm = styled.form`
+  animation: fade-in-move-down 0.6s ease-out 1s forwards;
   align-items: center;
+  opacity: 0;
 
   .submit-btn {
     margin-top: 1.5rem;
@@ -20,6 +22,10 @@ const StyledContactForm = styled.form`
 
   @media screen and (min-width: ${DESKTOP_BP}em) {
     flex: 0 0 23.75rem;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    animation: fade-in 0.6s ease-out 1s forwards;
   }
 `;
 
