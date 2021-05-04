@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app';
 import Router from 'next/router';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 import '../styles/global.css';
 import { TABLET_BP, DESKTOP_BP, UNIT } from '../constants/constants';
@@ -343,9 +343,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <Component {...pageProps} />
     </>
   );
 }
