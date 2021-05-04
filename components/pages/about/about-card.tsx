@@ -80,7 +80,11 @@ const AboutCard = ({
   return (
     <StyledAboutCard className='flex-col flex-row-gt-md' flipSides={flipSides}>
       <div className='image-container'>
-        <ResponsiveImage imageSources={imageSources} layout='responsive' />
+        <ResponsiveImage
+          imageSources={imageSources}
+          layout='responsive'
+          alt=''
+        />
       </div>
       <div className='content-container flex-col flex-centered'>
         <div className='bg-image'>
@@ -91,6 +95,7 @@ const AboutCard = ({
             width='584'
             height='584'
             onLoad={addFadeInImageClass}
+            alt=''
           />
         </div>
         <h2 className='heading-lg'>{title}</h2>

@@ -85,6 +85,7 @@ const Layout = ({
               layout='fixed'
               width={1006}
               height={594}
+              alt=''
             />
           </div>
           <div className='bg-image leaf-bg-bottom'>
@@ -93,6 +94,7 @@ const Layout = ({
               layout='fixed'
               width={1006}
               height={594}
+              alt=''
             />
           </div>
         </StyledBgImages>

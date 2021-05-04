@@ -114,7 +114,7 @@ const FormField = (props: FormFieldType) => {
             src='/contact/desktop/icon-error.svg'
             width='20px'
             height='20px'
-            alt='Error icon.'
+            alt=''
           />
         </div>
       ) : null}

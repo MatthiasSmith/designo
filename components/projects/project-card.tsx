@@ -95,9 +95,10 @@ const ProjectCard = ({
         height='640'
         className='project-img'
         onLoad={addFadeInImageClass}
+        alt=''
       />
       <div className='text-container flex-col flex-centered'>
-        <h3 className='heading-sm'>{title}</h3>
+        <h2 className='heading-sm'>{title}</h2>
         <p className='description text-center'>{description}</p>
       </div>
     </StyledProjectCard>

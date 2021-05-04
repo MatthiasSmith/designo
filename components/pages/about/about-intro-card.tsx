@@ -92,6 +92,7 @@ const AboutIntroCard = () => {
           imageSources={pages.about.hero}
           layout='responsive'
           priority={true}
+          alt=''
         />
       </div>
       <div className='content-container flex-col justify-center'>
