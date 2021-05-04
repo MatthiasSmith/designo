@@ -147,7 +147,7 @@ const PageIntroCard = () => {
             fully responsive websites, app design, and engaging brand
             experiences. Find out more about our services.
           </p>
-          <ButtonLink href='/' className='learn-more-link'>
+          <ButtonLink href='/about' className='learn-more-link'>
             Learn More
           </ButtonLink>
         </div>
