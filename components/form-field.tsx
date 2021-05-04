@@ -12,7 +12,7 @@ const StyledFormField = styled.div`
     width: 100%;
     height: 0.1875rem;
     background-color: white;
-    bottom: 0;
+    bottom: ${(props) => (props.type === 'textarea' ? '0.4375rem' : '0')};
     left: 0;
     transform: scaleX(0);
     transform-origin: right;
@@ -31,6 +31,7 @@ const StyledFormField = styled.div`
     background: transparent;
     border: none;
     border-bottom: 1px solid white;
+    border-radius: 0;
     color: var(--text-color-secondary);
     font-family: var(--font-family);
     font-size: 0.9375rem;
@@ -83,7 +84,7 @@ type FormFieldType = FormFieldInputTypes & FormFieldTextAreaTypes;
 const FormField = (props: FormFieldType) => {
   const { type, label, name, value, error, ...otherProps } = props;
   return (
-    <StyledFormField error={error}>
+    <StyledFormField error={error} type={type}>
       {type === 'textarea' ? (
         <textarea
           aria-label={label}
