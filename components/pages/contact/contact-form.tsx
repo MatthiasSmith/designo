@@ -51,7 +51,6 @@ const ContactForm = () => {
   const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
-    console.log(name.value, email.value, message.value);
     if (!name.value || !email.value || !message.value) return;
     setIsFormValid(name.valid && email.valid && message.valid);
   }, [name.valid, email.valid, message.valid]);
