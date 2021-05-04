@@ -1,34 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Frontend Mentor - Designo agency website solution
 
-## Getting Started
+This is a solution to the [Designo agency website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/designo-multipage-website-G48K6rfUT). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-First, run the development server:
+## Table of contents
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Overview
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### The challenge
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Users should be able to:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- View the optimal layout for each page depending on their device's screen size
+- See hover states for all interactive elements throughout the site
+- Receive an error message when the contact form is submitted or when a field is left if:
+  - The `Name`, `Email Address` or `Your Message` fields are empty should show "Can't be empty"
+  - The `Email Address` is not formatted correctly should show "Invalid email format"
 
-## Learn More
+### Screenshot
 
-To learn more about Next.js, take a look at the following resources:
+![](screenshots/Screenshot_Designo-Agency-Website-Challenge-Desktop.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Links
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<!-- - Solution URL: [Add solution URL here](https://your-solution-url.com) -->
+- Live Site URL: [designo-matthiassmith.vercel.app](https://designo-matthiassmith.vercel.app)
 
-## Deploy on Vercel
+## My process
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Built with
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Semantic HTML5 markup
+- CSS Grid
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [Next.js](https://nextjs.org/) - React framework
+- [TypeScript](https://www.typescriptlang.org/) - Static type definitions
+- [Styled Components](https://styled-components.com/) - For styles
+- [ScrollMagic](https://scrollmagic.io) & [react-scrollmagic](https://www.npmjs.com/package/react-scrollmagic) - For triggering animations when the user scrolls
+- prefers-reduced-motion media query - to set reduced motion animations
+
+### What I learned
+
+Using Next.js works really well for building out multi-page sites with static assets. The `Image` component in particular comes in handy.
+
+However, in projects where you are provided multiple images for different screen sizes already, the `Image` component can be cumbersome to use, because it's built to auto-magically size/resize single images. Being able to provide multiple sources for different screen sizes while still benefiting from the optimizations that the Next.js `Image` component provides would be nice to have.
+
+To do this, I added my own component `ResponsiveImage` that dynamically sets the `src` and other attributes of the `Image` component based on the screen's size, the images given to it, and their properties.
+
+### Useful resources
+
+- [Wave's Web Accessibility Evaluation Tool](https://wave.webaim.org/) - This helped me to test my site's accessibility by giving me insights and errors related to accessibility concerns.
+- [Solution for resize event with react hooks](https://dev.to/vitaliemaldur/resize-event-listener-using-react-hooks-1k0c) - This article and its code helped me to create a custom hook that gets and updates the screen's width upon window resize events.
+
+## Author
+
+- Website - [My Portfolio](https://portfolio-matthiassmith.vercel.app)
+- Frontend Mentor - [@MatthiasSmith](https://www.frontendmentor.io/profile/MatthiasSmith)
