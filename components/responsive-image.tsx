@@ -1,28 +1,43 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 import { TABLET_BP, DESKTOP_BP } from '../constants/constants';
 import addFadeInImageClass from '../helpers/add-fade-in-image-class';
+import useCurrentWidth from '../hooks/use-current-width';
+
+interface ImageSourceType {
+  src: string;
+  width: number;
+  height: number;
+}
+
+interface ImageSourcesType {
+  lg: ImageSourceType;
+  md: ImageSourceType;
+  sm: ImageSourceType;
+}
 
 const ResponsiveImage = (props) => {
-  const { imageSources, imageIndex, width, height, ...otherProps } = props;
-  const [screenSize, setScreenSize] = useState('sm');
-  const imageProps = imageSources[screenSize];
+  const clientWidth = useCurrentWidth();
+  const {
+    imageSources,
+    imageIndex,
+    ...otherProps
+  }: { imageSources: ImageSourcesType; imageIndex: number } = props;
 
-  useLayoutEffect(() => {
-    const clientWidth = document.documentElement.clientWidth;
-    if (clientWidth >= TABLET_BP * 16 && clientWidth < DESKTOP_BP * 16) {
-      setScreenSize('md');
-    } else if (clientWidth >= DESKTOP_BP * 16) {
-      setScreenSize('lg');
-    }
-  }, []);
+  let screenSize = 'sm';
+  if (clientWidth >= TABLET_BP * 16 && clientWidth < DESKTOP_BP * 16) {
+    screenSize = 'md';
+  } else if (clientWidth >= DESKTOP_BP * 16) {
+    screenSize = 'lg';
+  }
+  const imageProps = imageSources[screenSize];
 
   return (
     <Image
       src={imageProps.src || imageProps[imageIndex] || imageProps[0]}
-      width={imageSources[screenSize].width || width || undefined}
-      height={imageSources[screenSize].height || height || undefined}
+      width={imageSources[screenSize].width || undefined}
+      height={imageSources[screenSize].height || undefined}
       onLoad={addFadeInImageClass}
       className='opacity-0'
       {...otherProps}
