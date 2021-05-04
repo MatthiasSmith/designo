@@ -3,9 +3,36 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { TABLET_BP } from '../constants/constants';
-import Button from './button';
-import MobileNavMenu from './header/mobile-nav-menu';
+import { TABLET_BP } from '../../constants/constants';
+import Button from '../button';
+import MobileNavMenu from './mobile-nav-menu';
+
+const StyledMobileNavMenuContainer = styled.div`
+  &.close-mobile-nav {
+    .mobile-nav-menu {
+      animation: slide-shut 0.26s ease-out 0s forwards;
+
+      @media screen and (prefers-reduced-motion: reduce) {
+        animation-name: fade-in;
+        animation-direction: reverse;
+      }
+    }
+
+    .mobile-nav-overlay {
+      animation: fade-in 0.26s ease-out 0s reverse forwards;
+    }
+  }
+
+  @keyframes slide-shut {
+    0% {
+      max-height: 15.0625rem;
+    }
+
+    100% {
+      max-height: 0rem;
+    }
+  }
+`;
 
 const StyledNav = styled.nav`
   width: 100%;
@@ -73,6 +100,7 @@ const StyledNav = styled.nav`
 `;
 
 const Nav = ({ isFooter }: { isFooter?: boolean }) => {
+  const mobileNavContainerRef = useRef(null);
   const mobileNavRef = useRef(null);
   const [isMobileNavVisible, setIsMobileNavVisible] = useState(false);
 
@@ -81,14 +109,27 @@ const Nav = ({ isFooter }: { isFooter?: boolean }) => {
   ]);
 
   const handleHamburgerMenuClick = () => {
-    setIsMobileNavVisible(!isMobileNavVisible);
-    document.body.style.position =
-      !document.body.style.position || document.body.style.position === 'static'
-        ? 'fixed'
-        : 'static';
+    if (isMobileNavVisible) {
+      addCloseMobileNavClass();
+    } else {
+      setIsMobileNavVisible(true);
+      document.body.style.position = 'fixed';
+    }
   };
 
-  const closeMobileNav = () => {
+  const addCloseMobileNavClass = () => {
+    mobileNavContainerRef.current.classList.add('close-mobile-nav');
+  };
+
+  const closeMobileNav = (event) => {
+    event.stopPropagation();
+    if (
+      !event.target.classList.contains('mobile-nav-menu') ||
+      event.animationName === 'slide-open' ||
+      event.animationName === 'fade-in-mobile-nav'
+    )
+      return;
+
     setIsMobileNavVisible(false);
     document.body.style.position = 'static';
   };
@@ -165,7 +206,12 @@ const Nav = ({ isFooter }: { isFooter?: boolean }) => {
         )}
       </StyledNav>
       {isMobileNavVisible && (
-        <MobileNavMenu ref={mobileNavRef} onClose={closeMobileNav} />
+        <StyledMobileNavMenuContainer
+          ref={mobileNavContainerRef}
+          onAnimationEnd={closeMobileNav}
+        >
+          <MobileNavMenu ref={mobileNavRef} onClose={addCloseMobileNavClass} />
+        </StyledMobileNavMenuContainer>
       )}
     </>
   );

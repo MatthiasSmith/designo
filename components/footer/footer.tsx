@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
 import GetInTouchCard from './get-in-touch-card';
-import Nav from '../nav';
+import Nav from '../nav/nav';
 import SocialMediaLinks from './social-media-links';
 import AddressContactInfo from './address-contact-info';
 

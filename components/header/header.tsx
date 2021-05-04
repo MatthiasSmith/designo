@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { TABLET_BP } from '../../constants/constants';
-import Nav from '../nav';
+import Nav from '../nav/nav';
 
 const StyledHeader = styled.header`
   height: 6rem;

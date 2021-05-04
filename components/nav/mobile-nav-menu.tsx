@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 const StyledOverlay = styled.div`
+  animation: fade-in 0.26s ease-out 0s forwards;
   background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
   position: fixed;
   top: 6rem;
   left: 0;
@@ -13,14 +15,20 @@ const StyledOverlay = styled.div`
 `;
 
 const StyledMobileNaveMenuContainer = styled.div`
+  animation: slide-open 0.26s ease-out 0s forwards;
   background: var(--black);
   color: white;
-  padding: 3rem var(--site-side-padding);
+  max-height: 0rem;
+  overflow: hidden;
   position: absolute;
   width: 100%;
   top: 6rem;
   left: 0;
   z-index: 11;
+
+  ul {
+    padding: 3rem var(--site-side-padding);
+  }
 
   li:not(:first-of-type) {
     margin-top: 2rem;
@@ -31,6 +39,32 @@ const StyledMobileNaveMenuContainer = styled.div`
     letter-spacing: 2px;
     line-height: 1.5625rem;
     text-transform: uppercase;
+  }
+
+  @keyframes fade-in-mobile-nav {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-open {
+    0% {
+      max-height: 0rem;
+    }
+
+    100% {
+      max-height: 15.0625rem;
+    }
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    animation: fade-in-mobile-nav 0.26s ease-out 0s forwards;
+    opacity: 0;
+    max-height: unset;
   }
 `;
 
@@ -49,13 +83,16 @@ const MobileNavMenu = React.forwardRef<HTMLDivElement, { onClose: Function }>(
     };
 
     return (
-      <>
-        <StyledOverlay onClick={handleOverlayClick} />
+      <div ref={ref}>
+        <StyledOverlay
+          className='mobile-nav-overlay'
+          onClick={handleOverlayClick}
+        />
         <StyledMobileNaveMenuContainer
+          className='mobile-nav-menu'
           role='dialog'
           aria-label='Mobile navigation menu.'
           onKeyUp={closeOnEscapeKey}
-          ref={ref}
           tabIndex={-1}
         >
           <ul>
@@ -76,7 +113,7 @@ const MobileNavMenu = React.forwardRef<HTMLDivElement, { onClose: Function }>(
             </li>
           </ul>
         </StyledMobileNaveMenuContainer>
-      </>
+      </div>
     );
   }
 );
