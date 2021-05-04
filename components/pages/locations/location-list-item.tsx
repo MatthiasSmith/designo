@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
+import { Scene } from 'react-scrollmagic';
 
 import { DESKTOP_BP, TABLET_BP } from '../../../constants/constants';
 import ResponsiveImage from '../../responsive-image';
@@ -13,6 +14,17 @@ const StyledLocationListItem = styled.li`
 
   &:not(:first-of-type) {
     margin-top: 2.5rem;
+  }
+
+  &.fade-in .animatable {
+    opacity: 1;
+    transform: translate(0rem, 0rem);
+  }
+
+  .animatable {
+    transition: all 0.6s ease-out;
+    opacity: 0;
+    transform: translateX(50%);
   }
 
   .content-container {
@@ -118,50 +130,55 @@ const StyledLocationListItem = styled.li`
   }
 `;
 
-interface iLocation {
+interface LocationType {
   imageSources: any;
   name: string;
+  id: string;
   address: any;
   contact: any;
 }
 
-const LocationListItem = ({ location }: { location: iLocation }) => {
+const LocationListItem = ({ location }: { location: LocationType }) => {
   return (
-    <StyledLocationListItem id={location.name} className='flex-row-gt-md'>
-      <div className='img-container flex'>
-        <ResponsiveImage
-          imageSources={location.imageSources}
-          layout='responsive'
-        />
-      </div>
-      <div className='content-container flex-col flex-centered flex'>
-        <div className='bg-image'>
-          <Image
-            className='opacity-0'
-            src='/shared/desktop/bg-pattern-three-circles.svg'
-            layout='fixed'
-            width='584'
-            height='584'
-            onLoad={addFadeInImageClass}
+    <Scene classToggle='fade-in' reverse={false}>
+      <StyledLocationListItem id={location.id} className='flex-row-gt-md'>
+        <div className='img-container flex animatable'>
+          <ResponsiveImage
+            imageSources={location.imageSources}
+            layout='responsive'
+            alt={`Map of our office location in ${location.name}.`}
           />
         </div>
-        <h2 className='heading-lg'>{location.name}</h2>
-        <div className='info-container flex-col flex-row-gt-sm'>
-          <div className='address flex-col flex'>
-            <strong>{location.address.name}</strong>
-            <span>{location.address.street}</span>
-            <span>{`${location.address.city}${
-              location.address.region ? ', ' + location.address.region : ''
-            } ${location.address.zip}`}</span>
+        <div className='content-container flex-col flex-centered flex animatable'>
+          <div className='bg-image'>
+            <Image
+              className='opacity-0'
+              src='/shared/desktop/bg-pattern-three-circles.svg'
+              layout='fixed'
+              width='584'
+              height='584'
+              onLoad={addFadeInImageClass}
+              alt=''
+            />
           </div>
-          <div className='contact flex-col'>
-            <strong>Contact</strong>
-            <span>P : {location.contact.phone}</span>
-            <span>M : {location.contact.email}</span>
+          <h2 className='heading-lg'>{location.name}</h2>
+          <div className='info-container flex-col flex-row-gt-sm'>
+            <div className='address flex-col flex'>
+              <strong>{location.address.name}</strong>
+              <span>{location.address.street}</span>
+              <span>{`${location.address.city}${
+                location.address.region ? ', ' + location.address.region : ''
+              } ${location.address.zip}`}</span>
+            </div>
+            <div className='contact flex-col'>
+              <strong>Contact</strong>
+              <span>P : {location.contact.phone}</span>
+              <span>M : {location.contact.email}</span>
+            </div>
           </div>
         </div>
-      </div>
-    </StyledLocationListItem>
+      </StyledLocationListItem>
+    </Scene>
   );
 };
 

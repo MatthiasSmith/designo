@@ -1,6 +1,7 @@
 const locations = {
   canada: {
     name: 'Canada',
+    id: 'Canada',
     illustration: {
       src: '/shared/desktop/illustration-canada.svg',
       width: 202,
@@ -38,6 +39,7 @@ const locations = {
   },
   australia: {
     name: 'Australia',
+    id: 'Australia',
     illustration: {
       src: '/shared/desktop/illustration-australia.svg',
       width: 202,
@@ -75,6 +77,7 @@ const locations = {
   },
   uk: {
     name: 'United Kingdom',
+    id: 'UnitedKingdom',
     illustration: {
       src: '/shared/desktop/illustration-united-kingdom.svg',
       width: 202,
