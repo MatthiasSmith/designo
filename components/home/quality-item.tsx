@@ -5,10 +5,10 @@ import { Scene } from 'react-scrollmagic';
 import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
 
 const Styled = styled.li`
-  /* opacity: 0; */
+  opacity: 0;
   text-align: center;
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  /* transform: translateX(-4rem); */
+  transform: translateX(-4rem);
 
   @media screen and (prefers-reduced-motion: reduce) {
     transition: opacity 0.6s ease-out;
@@ -66,7 +66,7 @@ const Styled = styled.li`
 
   @media screen and (min-width: ${DESKTOP_BP}em) {
     text-align: center;
-    /* transform: translateY(2rem); */
+    transform: translateY(2rem);
 
     &:nth-of-type(2) {
       transition-delay: 0.25s;
@@ -101,24 +101,24 @@ const QualityItem = ({
   image: string;
 }) => {
   return (
-    // <Scene classToggle='fade-in' reverse={false} offset={-90}>
-    <Styled className='flex-col flex-row-gt-sm flex-col-gt-md flex-centered'>
-      <div className='img-container'>
-        <div className='bg-image' aria-hidden='true'>
-          <Image
-            src='/shared/desktop/bg-pattern-small-circle.svg'
-            layout='fill'
-            alt=''
-          />
+    <Scene classToggle='fade-in' reverse={false} offset={-90}>
+      <Styled className='flex-col flex-row-gt-sm flex-col-gt-md flex-centered'>
+        <div className='img-container'>
+          <div className='bg-image' aria-hidden='true'>
+            <Image
+              src='/shared/desktop/bg-pattern-small-circle.svg'
+              layout='fill'
+              alt=''
+            />
+          </div>
+          <Image src={image} layout='fixed' width={202} height={202} alt='' />
         </div>
-        <Image src={image} layout='fixed' width={202} height={202} alt='' />
-      </div>
-      <div className='text-container'>
-        <h2 className='heading-sm text-uppercase'>{title}</h2>
-        <p className='quality-text'>{text}</p>
-      </div>
-    </Styled>
-    // </Scene>
+        <div className='text-container'>
+          <h2 className='heading-sm text-uppercase'>{title}</h2>
+          <p className='quality-text'>{text}</p>
+        </div>
+      </Styled>
+    </Scene>
   );
 };
 
