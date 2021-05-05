@@ -10,11 +10,11 @@ import ResponsiveImage from '../responsive-image';
 const Styled = styled.li`
   border-radius: var(--border-radius);
   color: white;
-  /* opacity: 0; */
+  opacity: 0;
   overflow: hidden;
   position: relative;
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  /* transform: translateX(50%); */
+  transform: translateX(50%);
 
   @media screen and (prefers-reduced-motion: reduce) {
     transition: opacity 0.6s ease-out;
@@ -73,9 +73,9 @@ const Styled = styled.li`
   }
 
   @media screen and (min-width: ${DESKTOP_BP}em) {
-    /* &:first-of-type:not(.fade-in) {
+    &:first-of-type:not(.fade-in) {
       transform: translateX(-50%);
-    } */
+    }
 
     ${(props) =>
       props.isHome
@@ -125,41 +125,39 @@ const ProductLinkListItem = ({
   return (
     <>
       {router.asPath !== productRoute && (
-        // <Scene
-        //   classToggle='fade-in'
-        //   triggerElement='.product-link-item'
-        //   reverse={false}
-        //   offset={-100}
-        // >
-        <Styled className='product-link-item' isHome={isHomePage}>
-          <div className='bg-image' aria-hidden='true'>
-            <ResponsiveImage
-              imageSources={bgImages}
-              imageIndex={isHomePage ? 0 : 1}
-              layout='fill'
-              objectFit='cover'
-              alt=''
-              loading='eager'
-            />
-          </div>
-          <Link href={href}>
-            <a>
-              <div className='top-layer content-container text-center text-uppercase'>
-                <h2 className='heading-md'>{title}</h2>
-                <span className='link-text'>View Projects</span>
-                <Image
-                  src='/shared/desktop/icon-right-arrow.svg'
-                  layout='fixed'
-                  width={7}
-                  height={10}
-                  alt=''
-                  loading='eager'
-                />
-              </div>
-            </a>
-          </Link>
-        </Styled>
-        // </Scene>
+        <Scene
+          classToggle='fade-in'
+          triggerElement='.product-link-item'
+          reverse={false}
+          offset={-100}
+        >
+          <Styled className='product-link-item' isHome={isHomePage}>
+            <div className='bg-image' aria-hidden='true'>
+              <ResponsiveImage
+                imageSources={bgImages}
+                imageIndex={isHomePage ? 0 : 1}
+                layout='fill'
+                objectFit='cover'
+                alt=''
+              />
+            </div>
+            <Link href={href}>
+              <a>
+                <div className='top-layer content-container text-center text-uppercase'>
+                  <h2 className='heading-md'>{title}</h2>
+                  <span className='link-text'>View Projects</span>
+                  <Image
+                    src='/shared/desktop/icon-right-arrow.svg'
+                    layout='fixed'
+                    width={7}
+                    height={10}
+                    alt=''
+                  />
+                </div>
+              </a>
+            </Link>
+          </Styled>
+        </Scene>
       )}
     </>
   );

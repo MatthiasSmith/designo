@@ -21,22 +21,22 @@ const StyledHomeIntroCard = styled.article`
   }
 
   .heading-lg {
-    /* animation: fade-in-move-down 0.6s ease-out 0.7s forwards; */
+    animation: fade-in-move-down 0.6s ease-out 0.7s forwards;
     max-width: 26.875rem;
-    /* opacity: 0; */
+    opacity: 0;
   }
 
   .body-text {
-    /* animation: fade-in-move-down 0.6s ease-out 0.95s forwards; */
+    animation: fade-in-move-down 0.6s ease-out 0.95s forwards;
     margin-top: 1rem;
     max-width: 26.875rem;
-    /* opacity: 0; */
+    opacity: 0;
   }
 
   .learn-more-link {
     margin-top: 2rem;
-    /* animation: fade-in-move-down 0.6s ease-out 1.2s forwards; */
-    /* opacity: 0; */
+    animation: fade-in-move-down 0.6s ease-out 1.2s forwards;
+    opacity: 0;
   }
 
   .img-container {

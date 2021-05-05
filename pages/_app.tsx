@@ -227,12 +227,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   // animations
-  .animatable {
-    opacity: 1 !important;
-    transition-duration: 0s !important;
-    transform: translate(0, 0) !important;
-  }
-
   @keyframes fade-in {
     0% {
       opacity: 0;

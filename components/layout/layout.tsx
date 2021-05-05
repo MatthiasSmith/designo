@@ -96,7 +96,6 @@ const Layout = ({
               width={1006}
               height={594}
               alt=''
-              loading='eager'
             />
           </div>
         </StyledBgImages>
