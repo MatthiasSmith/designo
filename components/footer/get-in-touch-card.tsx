@@ -108,37 +108,38 @@ const Styled = styled.div`
 
 const GetInTouchCard = () => {
   return (
-    <Scene classToggle='fade-in' offset={-100} reverse={false}>
-      <Styled>
-        <article className='card'>
-          <div className='bg-image'>
-            <Image
-              src='/shared/desktop/bg-pattern-call-to-action.svg'
-              alt=''
-              layout='fixed'
-              width={876}
-              height={584}
-            />
+    // <Scene classToggle='fade-in' offset={-100} reverse={false}>
+    <Styled>
+      <article className='card'>
+        <div className='bg-image'>
+          <Image
+            src='/shared/desktop/bg-pattern-call-to-action.svg'
+            alt=''
+            layout='fixed'
+            width={876}
+            height={584}
+            loading='eager'
+          />
+        </div>
+        <div className='content-container flex-col flex-centered flex-row-gt-md'>
+          <div className='text-container flex-col'>
+            <h2 className='heading-lg animatable'>
+              Let’s talk about your project
+            </h2>
+            <p className='get-in-touch-text animatable'>
+              Ready to take it to the next level? Contact us today and find out
+              how our expertise can help your business grow.
+            </p>
           </div>
-          <div className='content-container flex-col flex-centered flex-row-gt-md'>
-            <div className='text-container flex-col'>
-              <h2 className='heading-lg animatable'>
-                Let’s talk about your project
-              </h2>
-              <p className='get-in-touch-text animatable'>
-                Ready to take it to the next level? Contact us today and find
-                out how our expertise can help your business grow.
-              </p>
-            </div>
-            <div className='btn-container animatable'>
-              <ButtonLink href='/contact' className='get-in-touch-link'>
-                Get in touch
-              </ButtonLink>
-            </div>
+          <div className='btn-container animatable'>
+            <ButtonLink href='/contact' className='get-in-touch-link'>
+              Get in touch
+            </ButtonLink>
           </div>
-        </article>
-      </Styled>
-    </Scene>
+        </div>
+      </article>
+    </Styled>
+    // </Scene>
   );
 };
 
