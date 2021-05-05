@@ -112,7 +112,14 @@ const QualityItem = ({
             loading='eager'
           />
         </div>
-        <Image src={image} layout='fixed' width={202} height={202} alt='' />
+        <Image
+          src={image}
+          layout='fixed'
+          width={202}
+          height={202}
+          alt=''
+          loading='eager'
+        />
       </div>
       <div className='text-container'>
         <h2 className='heading-sm text-uppercase'>{title}</h2>
