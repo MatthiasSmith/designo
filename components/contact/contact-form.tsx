@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { DESKTOP_BP, TABLET_BP } from '../../../constants/constants';
-import Button from '../../button';
-import FormField from '../../form-field';
+import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
+import Button from '../button';
+import FormField from '../form-field';
 
 const StyledContactForm = styled.form`
   animation: fade-in-move-down 0.6s ease-out 1s forwards;

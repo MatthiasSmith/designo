@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { DESKTOP_BP, TABLET_BP } from '../../../constants/constants';
+import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
 
-import about from '../../../data/about';
-import ResponsiveImage from '../../responsive-image';
+import about from '../../data/about';
+import ResponsiveImage from '../responsive-image';
 
 const StyledAboutIntroCard = styled.div`
   background-color: var(--color-primary);

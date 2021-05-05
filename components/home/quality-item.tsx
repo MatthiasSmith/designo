@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import { Scene } from 'react-scrollmagic';
 
-import { DESKTOP_BP, TABLET_BP } from '../../../constants/constants';
+import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
 
 const Styled = styled.li`
   opacity: 0;

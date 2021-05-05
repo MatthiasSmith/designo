@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import qualities from '../../../data/qualities';
+import qualities from '../../data/qualities';
 import QualityItem from './quality-item';
 
 const Styled = styled.ul`

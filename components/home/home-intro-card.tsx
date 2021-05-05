@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 
-import { DESKTOP_BP, TABLET_BP } from '../../../constants/constants';
-import ButtonLink from '../../button-link';
-import addFadeInImageClass from '../../../helpers/add-fade-in-image-class';
+import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
+import ButtonLink from '../button-link';
+import addFadeInImageClass from '../../helpers/add-fade-in-image-class';
 
-const StyledPageIntroCard = styled.article`
+const StyledHomeIntroCard = styled.article`
   text-align: center;
   padding-top: 5rem;
 
@@ -125,9 +125,9 @@ const StyledPageIntroCard = styled.article`
   }
 `;
 
-const PageIntroCard = () => {
+const HomeIntroCard = () => {
   return (
-    <StyledPageIntroCard className='card flex-col flex-centered'>
+    <StyledHomeIntroCard className='card flex-col flex-centered'>
       <div className='bg-image' aria-hidden='true'>
         <Image
           src='/home/desktop/bg-pattern-hero-home.svg'
@@ -163,8 +163,8 @@ const PageIntroCard = () => {
           />
         </div>
       </div>
-    </StyledPageIntroCard>
+    </StyledHomeIntroCard>
   );
 };
 
-export default PageIntroCard;
+export default HomeIntroCard;

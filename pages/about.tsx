@@ -5,9 +5,9 @@ import { Scene } from 'react-scrollmagic';
 import Layout from '../components/layout/layout';
 import about from '../data/about';
 import { DESKTOP_BP, TABLET_BP } from '../constants/constants';
-import AboutCard from '../components/pages/about/about-card';
+import AboutCard from '../components/about/about-card';
 import LocationLinksList from '../components/location-links/location-links-list';
-import AboutIntroCard from '../components/pages/about/about-intro-card';
+import AboutIntroCard from '../components/about/about-intro-card';
 
 const StyledContainer = styled.div`
   padding-bottom: 7.5rem;

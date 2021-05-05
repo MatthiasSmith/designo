@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import { Scene } from 'react-scrollmagic';
 
-import { DESKTOP_BP, TABLET_BP } from '../../../constants/constants';
-import ResponsiveImage from '../../responsive-image';
-import addFadeInImageClass from '../../../helpers/add-fade-in-image-class';
+import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
+import ResponsiveImage from '../responsive-image';
+import addFadeInImageClass from '../../helpers/add-fade-in-image-class';
 
-const StyledLocationListItem = styled.li`
+const StyledLocationsListItem = styled.li`
   overflow: hidden;
   position: relative;
   z-index: 0;
@@ -138,10 +138,10 @@ interface LocationType {
   contact: any;
 }
 
-const LocationListItem = ({ location }: { location: LocationType }) => {
+const LocationsListItem = ({ location }: { location: LocationType }) => {
   return (
     <Scene classToggle='fade-in' reverse={false}>
-      <StyledLocationListItem id={location.id} className='flex-row-gt-md'>
+      <StyledLocationsListItem id={location.id} className='flex-row-gt-md'>
         <div className='img-container flex animatable'>
           <ResponsiveImage
             imageSources={location.imageSources}
@@ -177,9 +177,9 @@ const LocationListItem = ({ location }: { location: LocationType }) => {
             </div>
           </div>
         </div>
-      </StyledLocationListItem>
+      </StyledLocationsListItem>
     </Scene>
   );
 };
 
-export default LocationListItem;
+export default LocationsListItem;

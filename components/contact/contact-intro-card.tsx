@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { DESKTOP_BP, TABLET_BP } from '../../../constants/constants';
+import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
 import ContactForm from './contact-form';
 
 const StyledContactIntroCard = styled.div`

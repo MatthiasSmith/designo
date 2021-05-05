@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 
-import ResponsiveImage from '../../../components/responsive-image';
-import { DESKTOP_BP, TABLET_BP } from '../../../constants/constants';
-import addFadeInImageClass from '../../../helpers/add-fade-in-image-class';
+import ResponsiveImage from '../responsive-image';
+import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
+import addFadeInImageClass from '../../helpers/add-fade-in-image-class';
 
 const StyledAboutCard = styled.article`
   background-color: var(--light-peach-bg);

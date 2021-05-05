@@ -1,6 +1,6 @@
 import Layout from '../components/layout/layout';
 import LocationLinksList from '../components/location-links/location-links-list';
-import ContactIntroCard from '../components/pages/contact/contact-intro-card';
+import ContactIntroCard from '../components/contact/contact-intro-card';
 
 const Contact = () => {
   return (

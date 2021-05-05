@@ -1,5 +1,5 @@
 import Layout from '../components/layout/layout';
-import LocationsList from '../components/pages/locations/locations-list';
+import LocationsList from '../components/locations-list/locations-list';
 
 const Locations = () => {
   return (
