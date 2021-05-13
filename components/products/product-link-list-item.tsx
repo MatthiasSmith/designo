@@ -59,7 +59,7 @@ const Styled = styled.li`
   }
 
   .view-projects-container {
-    width: 50%;
+    width: 90%;
     margin: 0 auto;
   }
 
@@ -72,6 +72,10 @@ const Styled = styled.li`
   @media screen and (min-width: ${TABLET_BP}em) {
     .content-container {
       padding: 3.3125rem var(--site-side-padding);
+    }
+
+    .view-projects-container {
+      width: 50%;
     }
 
     .heading-md {
