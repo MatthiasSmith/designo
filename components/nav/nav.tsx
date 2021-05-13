@@ -57,6 +57,18 @@ const StyledNav = styled.nav`
     color: ${(props) => (props.isFooter ? 'white' : undefined)};
   }
 
+  .image-link,
+  .nav-link {
+    &:focus {
+      box-shadow: ${(props) =>
+        props.isFooter
+          ? '0rem 0rem 0rem 0.1875rem var(--black), 0rem 0rem 0rem 0.25rem white'
+          : '0rem 0rem 0rem 0.1875rem white, 0rem 0rem 0rem 0.25rem var(--black)'};
+      border-radius: 1px;
+      outline: 0;
+    }
+  }
+
   @media screen and (min-width: ${TABLET_BP}em) {
     .nav-list {
       border-top: none;
@@ -67,7 +79,7 @@ const StyledNav = styled.nav`
     .nav-list-item {
       margin-top: 0;
       position: relative;
-      overflow: hidden;
+      /* overflow: hidden; */
 
       &::after {
         content: '';
@@ -104,9 +116,10 @@ const Nav = ({ isFooter }: { isFooter?: boolean }) => {
   const mobileNavRef = useRef(null);
   const [isMobileNavVisible, setIsMobileNavVisible] = useState(false);
 
-  useEffect(() => isMobileNavVisible && mobileNavRef.current.focus(), [
-    isMobileNavVisible,
-  ]);
+  useEffect(
+    () => isMobileNavVisible && mobileNavRef.current.focus(),
+    [isMobileNavVisible]
+  );
 
   const handleHamburgerMenuClick = () => {
     if (isMobileNavVisible) {

@@ -19,9 +19,17 @@ const StyledButtonLink = styled.a`
   text-transform: uppercase;
   transition: all 0.3s ease-out;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: white;
     background: var(--color-secondary);
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0rem 0rem 0rem 0.155rem white,
+      0rem 0rem 0rem 0.25rem var(--color-primary);
+    border-radius: 1px;
   }
 `;
 

@@ -8,6 +8,7 @@ import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
 import ResponsiveImage from '../responsive-image';
 
 const Styled = styled.li`
+  --transparent-orange-bg: rgba(231, 129, 107, 0.65);
   border-radius: var(--border-radius);
   color: white;
   opacity: 0;
@@ -38,13 +39,18 @@ const Styled = styled.li`
     margin-top: 1.5rem;
   }
 
+  .product-page-link:focus .view-projects-container {
+    border: 1px solid white;
+    border-radius: 2px;
+  }
+
   .content-container {
     background-color: rgba(0, 0, 0, 0.55);
     padding: 5.625rem var(--site-side-padding);
     transition: background-color 0.3s ease-out;
 
     &:hover {
-      background-color: rgba(231, 129, 107, 0.65);
+      background-color: var(--transparent-orange-bg);
     }
   }
 
@@ -52,7 +58,12 @@ const Styled = styled.li`
     margin-bottom: 0.75rem;
   }
 
-  .link-text {
+  .view-projects-container {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .view-projects-text {
     font-size: 0.9375rem;
     letter-spacing: 5px;
     margin-right: 1rem;
@@ -142,17 +153,19 @@ const ProductLinkListItem = ({
               />
             </div>
             <Link href={href}>
-              <a>
+              <a className='product-page-link'>
                 <div className='top-layer content-container text-center text-uppercase'>
                   <h2 className='heading-md'>{title}</h2>
-                  <span className='link-text'>View Projects</span>
-                  <Image
-                    src='/shared/desktop/icon-right-arrow.svg'
-                    layout='fixed'
-                    width={7}
-                    height={10}
-                    alt=''
-                  />
+                  <div className='view-projects-container'>
+                    <span className='view-projects-text'>View Projects</span>
+                    <Image
+                      src='/shared/desktop/icon-right-arrow.svg'
+                      layout='fixed'
+                      width={7}
+                      height={10}
+                      alt=''
+                    />
+                  </div>
                 </div>
               </a>
             </Link>

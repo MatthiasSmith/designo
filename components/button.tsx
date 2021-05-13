@@ -27,6 +27,13 @@ const StyledButton = styled.button`
         background: var(--light-peach);
         color: white;
       }
+
+      &:focus {
+        outline: 0;
+        box-shadow: 0rem 0rem 0rem 0.155rem white,
+          0rem 0rem 0rem 0.25rem var(--color-primary);
+        border-radius: 1px;
+      }
     `}
 `;
 
