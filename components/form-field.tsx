@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const StyledFormField = styled.div`
   margin-bottom: 1.5rem;
   position: relative;
+  height: ${(props) => (props.type === 'textarea' ? '6.375rem;' : 'unset')};
   width: 100%;
 
   &::after {
@@ -12,7 +13,7 @@ const StyledFormField = styled.div`
     width: 100%;
     height: 0.1875rem;
     background-color: white;
-    bottom: ${(props) => (props.type === 'textarea' ? '0.4375rem' : '0')};
+    bottom: 0;
     left: 0;
     transform: scaleX(0);
     transform-origin: right;
