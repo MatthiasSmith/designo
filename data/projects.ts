@@ -1,4 +1,14 @@
-const projects = {
+interface ProjectType {
+  title: string;
+  description: string;
+  image: string;
+}
+
+interface ProjectsHashType {
+  [key: string]: ProjectType[];
+}
+
+const projects: ProjectsHashType = {
   'web-design': [
     {
       title: 'Express',

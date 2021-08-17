@@ -1,21 +1,9 @@
-import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
+import { ImageSourcesHashType } from '../types/image-sources-hash-type';
 import { TABLET_BP, DESKTOP_BP } from '../constants/constants';
 import addFadeInImageClass from '../helpers/add-fade-in-image-class';
 import useCurrentWidth from '../hooks/use-current-width';
-
-interface ImageSourceType {
-  src: string;
-  width: number;
-  height: number;
-}
-
-interface ImageSourcesType {
-  lg: ImageSourceType;
-  md: ImageSourceType;
-  sm: ImageSourceType;
-}
 
 const ResponsiveImage = (props) => {
   const clientWidth = useCurrentWidth();
@@ -23,7 +11,7 @@ const ResponsiveImage = (props) => {
     imageSources,
     imageIndex,
     ...otherProps
-  }: { imageSources: ImageSourcesType; imageIndex: number } = props;
+  }: { imageSources: ImageSourcesHashType; imageIndex: number } = props;
 
   let screenSize = 'sm';
   if (clientWidth >= TABLET_BP * 16 && clientWidth < DESKTOP_BP * 16) {

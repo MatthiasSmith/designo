@@ -6,6 +6,7 @@ import { Scene } from 'react-scrollmagic';
 import ButtonLink from '../button-link';
 import { DESKTOP_BP } from '../../constants/constants';
 import addFadeInImageClass from '../../helpers/add-fade-in-image-class';
+import { ImageSourceType } from '../../types/image-source-type';
 
 const StyledLocationLinksListItem = styled.li`
   &.animatable {
@@ -78,7 +79,7 @@ const LocationLinksListItem = ({
   href,
 }: {
   name: string;
-  image: any;
+  image: ImageSourceType;
   href: string;
 }) => {
   return (

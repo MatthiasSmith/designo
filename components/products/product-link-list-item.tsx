@@ -6,6 +6,7 @@ import { Scene } from 'react-scrollmagic';
 
 import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
 import ResponsiveImage from '../responsive-image';
+import { ImageSourcesHashType } from '../../types/image-sources-hash-type';
 
 const Styled = styled.li`
   --transparent-orange-bg: rgba(231, 129, 107, 0.65);
@@ -131,7 +132,7 @@ const ProductLinkListItem = ({
 }: {
   title: string;
   href: string;
-  bgImages: any;
+  bgImages: ImageSourcesHashType;
 }) => {
   const router = useRouter();
   const productRoute = `/${title.toLowerCase().split(' ').join('-')}`;

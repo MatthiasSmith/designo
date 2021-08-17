@@ -5,6 +5,7 @@ import Image from 'next/image';
 import ResponsiveImage from '../responsive-image';
 import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
 import addFadeInImageClass from '../../helpers/add-fade-in-image-class';
+import { ImageSourcesHashType } from '../../types/image-sources-hash-type';
 
 const StyledAboutCard = styled.article`
   background-color: var(--light-peach-bg);
@@ -72,7 +73,7 @@ const AboutCard = ({
   title,
   children,
 }: {
-  imageSources: any;
+  imageSources: ImageSourcesHashType;
   flipSides?: boolean;
   title: string;
   children: React.ReactNode;

@@ -1,4 +1,12 @@
-const products = [
+import { ImageSourcesHashType } from '../types/image-sources-hash-type';
+
+export interface ProductType {
+  title: string;
+  href: string;
+  imageSources: ImageSourcesHashType;
+}
+
+const products: ProductType[] = [
   {
     title: 'Web Design',
     href: '/web-design',

@@ -1,4 +1,34 @@
-const locations = {
+import { ImageSourceType } from '../types/image-source-type';
+import { ImageSourcesHashType } from '../types/image-sources-hash-type';
+
+interface AddressType {
+  name: string;
+  street: string;
+  city: string;
+  region: string;
+  zip: string;
+}
+
+interface ContactType {
+  phone: string;
+  email: string;
+}
+
+export interface LocationType {
+  name: string;
+  id: string;
+  illustration: ImageSourceType;
+  imageSources: ImageSourcesHashType;
+  address: AddressType;
+  contact: ContactType;
+  url: string;
+}
+
+interface LocationsHashType {
+  [key: string]: LocationType;
+}
+
+const locations: LocationsHashType = {
   canada: {
     name: 'Canada',
     id: 'Canada',

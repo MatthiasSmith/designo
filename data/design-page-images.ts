@@ -1,4 +1,12 @@
-const designPageImages = {
+import { ImageSourcesHashType } from '../types/image-sources-hash-type';
+
+interface DesignPageImagesHashType {
+  web: ImageSourcesHashType;
+  app: ImageSourcesHashType;
+  graphic: ImageSourcesHashType;
+}
+
+const designPageImages: DesignPageImagesHashType = {
   web: {
     sm: '/shared/mobile/bg-pattern-design-pages-intro-mobile.svg',
     md: '/shared/tablet/bg-pattern-design-pages-intro-tablet.svg',

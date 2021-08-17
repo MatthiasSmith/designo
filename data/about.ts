@@ -1,4 +1,10 @@
-const about = {
+import { ImageSourcesHashType } from '../types/image-sources-hash-type';
+
+interface AboutHashType {
+  [key: string]: ImageSourcesHashType;
+}
+
+const about: AboutHashType = {
   hero: {
     lg: {
       src: '/about/desktop/image-about-hero.jpg',
