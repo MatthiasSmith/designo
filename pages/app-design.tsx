@@ -21,13 +21,13 @@ const AppDesign = () => {
           <picture>
             <source
               media={`(min-width: ${DESKTOP_BP}em)`}
-              srcSet={designPageImages.app.lg}
+              srcSet={designPageImages.app.lg as string}
             />
             <source
               media={`(min-width: ${TABLET_BP}em)`}
-              srcSet={designPageImages.app.md}
+              srcSet={designPageImages.app.md as string}
             />
-            <img src={designPageImages.app.sm} alt='' />
+            <img src={designPageImages.app.sm as string} alt='' />
           </picture>
         }
         bgImagePosition={bgImagePosition}

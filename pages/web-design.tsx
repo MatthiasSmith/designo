@@ -16,13 +16,13 @@ export default function WebDesign() {
           <picture>
             <source
               media={`(min-width: ${DESKTOP_BP}em)`}
-              srcSet={designPageImages.web.lg}
+              srcSet={designPageImages.web.lg as string}
             />
             <source
               media={`(min-width: ${TABLET_BP}em)`}
-              srcSet={designPageImages.web.md}
+              srcSet={designPageImages.web.md as string}
             />
-            <img src={designPageImages.web.sm} alt='' />
+            <img src={designPageImages.web.sm as string} alt='' />
           </picture>
         }
       />

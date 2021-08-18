@@ -21,13 +21,13 @@ const GraphicDesign = () => {
           <picture>
             <source
               media={`(min-width: ${DESKTOP_BP}em)`}
-              srcSet={designPageImages.graphic.lg}
+              srcSet={designPageImages.graphic.lg as string}
             />
             <source
               media={`(min-width: ${TABLET_BP}em)`}
-              srcSet={designPageImages.graphic.md}
+              srcSet={designPageImages.graphic.md as string}
             />
-            <img src={designPageImages.graphic.sm} alt='' />
+            <img src={designPageImages.graphic.sm as string} alt='' />
           </picture>
         }
         bgImagePosition={bgImagePosition}
