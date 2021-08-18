@@ -10,8 +10,10 @@ const ResponsiveImage = (props) => {
   const {
     imageSources,
     imageIndex,
+    alt,
     ...otherProps
-  }: { imageSources: ImageSourcesHashType; imageIndex: number } = props;
+  }: { imageSources: ImageSourcesHashType; imageIndex: number; alt: string } =
+    props;
 
   let screenSize = 'sm';
   if (clientWidth >= TABLET_BP * 16 && clientWidth < DESKTOP_BP * 16) {
@@ -28,6 +30,7 @@ const ResponsiveImage = (props) => {
       height={imageSources[screenSize].height || undefined}
       onLoad={addFadeInImageClass}
       className='opacity-0'
+      alt={alt || ''}
       {...otherProps}
     />
   );

@@ -4,7 +4,7 @@ import LocationsList from '../components/locations-list/locations-list';
 const Locations = () => {
   return (
     <Layout pageTitle='Locations'>
-      <h1 className='sr-only'>Designo's Locations</h1>
+      <h1 className='sr-only'>Designo&apos;s Locations</h1>
       <LocationsList />
     </Layout>
   );

@@ -118,4 +118,6 @@ const MobileNavMenu = React.forwardRef<HTMLDivElement, { onClose: Function }>(
   }
 );
 
+MobileNavMenu.displayName = 'MobileNavMenu';
+
 export default MobileNavMenu;
