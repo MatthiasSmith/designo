@@ -157,7 +157,7 @@ const ProductLinkListItem = ({
                 alt=''
               />
             </div>
-            <Link href={href}>
+            <Link href={href} scroll={false}>
               <a className='product-page-link'>
                 <div className='top-layer content-container text-center text-uppercase'>
                   <h2 className='heading-md'>{title}</h2>

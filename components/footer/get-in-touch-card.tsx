@@ -131,7 +131,11 @@ const GetInTouchCard = () => {
               </p>
             </div>
             <div className='btn-container animatable'>
-              <ButtonLink href='/contact' className='get-in-touch-link'>
+              <ButtonLink
+                href='/contact'
+                className='get-in-touch-link'
+                scroll={false}
+              >
                 Get in touch
               </ButtonLink>
             </div>

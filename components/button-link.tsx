@@ -38,14 +38,16 @@ const ButtonLink = ({
   primary,
   children,
   className,
+  scroll = true,
 }: {
   href: string;
   primary?: boolean;
   children: React.ReactNode;
   className?: string;
+  scroll?: boolean;
 }) => {
   return (
-    <Link href={href} passHref>
+    <Link href={href} scroll={scroll} passHref>
       <StyledButtonLink primary={primary} className={className || ''}>
         {children}
       </StyledButtonLink>

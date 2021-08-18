@@ -155,7 +155,7 @@ const Nav = ({ isFooter }: { isFooter?: boolean }) => {
         } flex-row-gt-sm align-center space-between`}
         isFooter={isFooter}
       >
-        <Link href='/'>
+        <Link href='/' scroll={false}>
           <a className='image-link'>
             <Image
               priority={true}
@@ -177,17 +177,17 @@ const Nav = ({ isFooter }: { isFooter?: boolean }) => {
           }`}
         >
           <li className='nav-list-item'>
-            <Link href='/about'>
+            <Link href='/about' scroll={false}>
               <a className='nav-link'>Our Company</a>
             </Link>
           </li>
           <li className='nav-list-item'>
-            <Link href='/locations'>
+            <Link href='/locations' scroll={false}>
               <a className='nav-link'>Locations</a>
             </Link>
           </li>
           <li className='nav-list-item'>
-            <Link href='/contact'>
+            <Link href='/contact' scroll={false}>
               <a className='nav-link'>Contact</a>
             </Link>
           </li>
