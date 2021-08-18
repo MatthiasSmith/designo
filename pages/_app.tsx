@@ -1,8 +1,11 @@
 import { AppProps } from 'next/app';
-import Router from 'next/router';
+import Router, { useRouter } from 'next/router';
 import { createGlobalStyle } from 'styled-components';
+import { PageTransition } from 'next-page-transitions';
 
 import { TABLET_BP, DESKTOP_BP, UNIT } from '../constants/constants';
+
+const pageTransitionTime = 850;
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -225,6 +228,43 @@ const GlobalStyle = createGlobalStyle`
     width: 1px;
   }
 
+  // page transitions
+  .page-transition-enter::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300%;
+    height: 300%;
+    z-index: 100;
+    background: var(--peach);
+    transform: translateX(0%);
+    clip-path: polygon(66.6667% 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .page-transition-enter-active::before {
+    transform: translateX(56%);
+    transition: transform ${pageTransitionTime}ms ease-in;
+  }
+
+  .page-transition-exit::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    z-index: 100;
+    background: var(--peach);
+    transform: translateX(-100%);
+    clip-path: polygon(0 0, 100% 0, 33.3333% 100%, 0% 100%);
+  }
+
+  .page-transition-exit-active::before {
+    transform: translateX(-16.6667%);
+    transition: transform ${pageTransitionTime}ms ease-out;
+  }
+
   // animations
   @keyframes fade-in {
     0% {
@@ -339,10 +379,18 @@ Router.events.on(
   () => (document.body.style.position = 'static')
 );
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
   return (
     <>
       <GlobalStyle />
-      <Component {...pageProps} />
+      <PageTransition
+        timeout={pageTransitionTime}
+        classNames='page-transition'
+        skipInitialTransition={true}
+      >
+        <Component {...pageProps} key={router.route} />
+      </PageTransition>
     </>
   );
 }
