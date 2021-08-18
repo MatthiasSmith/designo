@@ -2,7 +2,6 @@ import { AppProps } from 'next/app';
 import Router from 'next/router';
 import { createGlobalStyle } from 'styled-components';
 
-import '../styles/global.css';
 import { TABLET_BP, DESKTOP_BP, UNIT } from '../constants/constants';
 
 const GlobalStyle = createGlobalStyle`
