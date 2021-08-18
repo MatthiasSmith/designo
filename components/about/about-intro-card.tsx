@@ -4,6 +4,7 @@ import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
 
 import about from '../../data/about';
 import ResponsiveImage from '../responsive-image';
+import { ImageSourceType } from '../../types/image-source-type';
 
 const StyledAboutIntroCard = styled.div`
   background-color: var(--color-primary);
@@ -100,13 +101,13 @@ const AboutIntroCard = () => {
           <picture>
             <source
               media={`(min-width: ${DESKTOP_BP}em)`}
-              srcSet={about.introBg.lg.src}
+              srcSet={(about.introBg.lg as ImageSourceType).src}
             />
             <source
               media={`(min-width: ${TABLET_BP}em)`}
-              srcSet={about.introBg.md.src}
+              srcSet={(about.introBg.md as ImageSourceType).src}
             />
-            <img src={about.introBg.sm.src} alt='' />
+            <img src={(about.introBg.sm as ImageSourceType).src} alt='' />
           </picture>
         </div>
         <h1 className='heading-lg'>About Us</h1>
