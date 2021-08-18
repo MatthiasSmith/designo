@@ -29,8 +29,8 @@ const SocialMediaLinks = () => {
         <a>
           <svg
             className='social-media-icon'
-            role='image'
-            aria-label="Designo\'s Facebook page"
+            role='img'
+            aria-label="Link to Designo\'s Facebook page"
             width='24'
             height='24'
             xmlns='http://www.w3.org/2000/svg'
@@ -46,8 +46,8 @@ const SocialMediaLinks = () => {
         <a>
           <svg
             className='social-media-icon'
-            role='image'
-            aria-label="Designo\'s YouTube channel"
+            role='img'
+            aria-label="Link to Designo\'s YouTube channel"
             width='24'
             height='24'
             xmlns='http://www.w3.org/2000/svg'
@@ -63,8 +63,8 @@ const SocialMediaLinks = () => {
         <a>
           <svg
             className='social-media-icon'
-            role='image'
-            aria-label="Designo\'s Twitter profile"
+            role='img'
+            aria-label="Link to Designo\'s Twitter profile"
             width='24'
             height='20'
             xmlns='http://www.w3.org/2000/svg'
@@ -80,8 +80,8 @@ const SocialMediaLinks = () => {
         <a>
           <svg
             className='social-media-icon'
-            role='image'
-            aria-label="Designo\'s Pinterest profile"
+            role='img'
+            aria-label="Link to Designo\'s Pinterest profile"
             width='24'
             height='24'
             xmlns='http://www.w3.org/2000/svg'
@@ -97,8 +97,8 @@ const SocialMediaLinks = () => {
         <a>
           <svg
             className='social-media-icon'
-            role='image'
-            aria-label="Designo\'s Instagram profile"
+            role='img'
+            aria-label="Link to Designo\'s Instagram profile"
             width='24'
             height='24'
             xmlns='http://www.w3.org/2000/svg'
