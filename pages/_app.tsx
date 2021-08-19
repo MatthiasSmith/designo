@@ -4,6 +4,7 @@ import { createGlobalStyle } from 'styled-components';
 import { PageTransition } from 'next-page-transitions';
 
 import { TABLET_BP, DESKTOP_BP, UNIT } from '../constants/constants';
+import { useEffect, useState } from 'react';
 
 const pageTransitionTime = 850;
 
@@ -228,43 +229,6 @@ const GlobalStyle = createGlobalStyle`
     width: 1px;
   }
 
-  // page transitions
-  .page-transition-enter::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 300%;
-    height: 300%;
-    z-index: 100;
-    background: var(--peach);
-    transform: translateX(0%);
-    clip-path: polygon(66.6667% 0, 100% 0, 100% 100%, 0 100%);
-  }
-
-  .page-transition-enter-active::before {
-    transform: translateX(56%);
-    transition: transform ${pageTransitionTime}ms ease-in;
-  }
-
-  .page-transition-exit::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    z-index: 100;
-    background: var(--peach);
-    transform: translateX(-100%);
-    clip-path: polygon(0 0, 100% 0, 33.3333% 100%, 0% 100%);
-  }
-
-  .page-transition-exit-active::before {
-    transform: translateX(-16.6667%);
-    transition: transform ${pageTransitionTime}ms ease-out;
-  }
-
   // animations
   @keyframes fade-in {
     0% {
@@ -366,26 +330,63 @@ const GlobalStyle = createGlobalStyle`
       padding-right: 5.9375rem;
     }
   }
-`;
 
-const theme = {
-  colors: {
-    primary: 'var(--color-primary)',
-  },
-};
+  // page transitions
+  @media screen and (prefers-reduced-motion: no-preference) {
+    .page-transition-enter::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 300%;
+      height: 300%;
+      z-index: 100;
+      background: var(--peach);
+      transform: translateX(0%);
+      clip-path: polygon(66.6667% 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .page-transition-enter-active::before {
+      transform: translateX(56%);
+      transition: transform ${pageTransitionTime}ms ease-in;
+    }
+
+    .page-transition-exit::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      z-index: 100;
+      background: var(--peach);
+      transform: translateX(-100%);
+      clip-path: polygon(0 0, 100% 0, 33.3333% 100%, 0% 100%);
+    }
+
+    .page-transition-exit-active::before {
+      transform: translateX(-16.6667%);
+      transition: transform ${pageTransitionTime}ms ease-out;
+    }
+  }
+`;
 
 Router.events.on(
   'routeChangeComplete',
   () => (document.body.style.position = 'static')
 );
 export default function App({ Component, pageProps }: AppProps) {
+  const [isReducedMotion, setIsReducedMotion] = useState(false);
+  useEffect(() => {
+    setIsReducedMotion(matchMedia('(prefers-reduced-motion: reduce)').matches);
+  }, []);
   const router = useRouter();
 
   return (
     <>
       <GlobalStyle />
       <PageTransition
-        timeout={pageTransitionTime}
+        timeout={isReducedMotion ? undefined : pageTransitionTime}
         classNames='page-transition'
         skipInitialTransition={true}
       >
