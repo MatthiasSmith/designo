@@ -1,4 +1,3 @@
-import Layout from '../components/layout/layout';
 import ContentContainer from '../components/layout/content-container';
 import IntroCard from '../components/intro-card';
 import designPageImages from '../data/design-page-images';
@@ -8,7 +7,7 @@ import ResponsiveImage from '../components/responsive-image';
 
 export default function WebDesign() {
   return (
-    <Layout pageTitle='Web Design'>
+    <>
       <IntroCard
         title='Web Design'
         text='We build websites that serve as powerful marketing tools and bring memorable brand experiences.'
@@ -25,6 +24,6 @@ export default function WebDesign() {
         <ProjectList projectType='web-design' />
         <ProductLinksList />
       </ContentContainer>
-    </Layout>
+    </>
   );
 }

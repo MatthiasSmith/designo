@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Scene } from 'react-scrollmagic';
 
-import Layout from '../components/layout/layout';
 import about from '../data/about';
 import { DESKTOP_BP, TABLET_BP } from '../constants/constants';
 import AboutCard from '../components/about/about-card';
@@ -39,7 +38,7 @@ const StyledContainer = styled.div`
 
 const About = () => {
   return (
-    <Layout pageTitle='About Us'>
+    <>
       <AboutIntroCard />
       <StyledContainer>
         <Scene classToggle='fade-in' reverse={false}>
@@ -89,7 +88,7 @@ const About = () => {
           </div>
         </Scene>
       </StyledContainer>
-    </Layout>
+    </>
   );
 };
 

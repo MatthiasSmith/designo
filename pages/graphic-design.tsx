@@ -1,4 +1,3 @@
-import Layout from '../components/layout/layout';
 import ContentContainer from '../components/layout/content-container';
 import IntroCard from '../components/intro-card';
 import designPageImages from '../data/design-page-images';
@@ -13,7 +12,7 @@ const GraphicDesign = () => {
   };
 
   return (
-    <Layout pageTitle='Graphic Design'>
+    <>
       <IntroCard
         title='Graphic Design'
         text='We deliver eye-catching branding materials that are tailored to meet your business objectives.'
@@ -31,7 +30,7 @@ const GraphicDesign = () => {
         <ProjectList projectType='graphic-design' />
         <ProductLinksList />
       </ContentContainer>
-    </Layout>
+    </>
   );
 };
 

@@ -1,4 +1,3 @@
-import Layout from '../components/layout/layout';
 import ContentContainer from '../components/layout/content-container';
 import IntroCard from '../components/intro-card';
 import designPageImages from '../data/design-page-images';
@@ -13,7 +12,7 @@ const AppDesign = () => {
   };
 
   return (
-    <Layout pageTitle='App Design'>
+    <>
       <IntroCard
         title='App Design'
         text='Our mobile designs bring intuitive digital solutions to your customers right at their fingertips.'
@@ -31,7 +30,7 @@ const AppDesign = () => {
         <ProjectList projectType='app-design' />
         <ProductLinksList />
       </ContentContainer>
-    </Layout>
+    </>
   );
 };
 

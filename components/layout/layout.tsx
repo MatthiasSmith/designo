@@ -8,6 +8,7 @@ import { Controller } from 'react-scrollmagic';
 import { TABLET_BP } from '../../constants/constants';
 import Header from '../header/header';
 import Footer from '../footer/footer';
+import { ROUTE_NAMES } from '../../constants/route-names';
 
 const StyledMain = styled.main`
   animation: fade-in 0.3s ease-out forwards;
@@ -49,13 +50,7 @@ const StyledBgImages = styled.div`
   }
 `;
 
-const Layout = ({
-  children,
-  pageTitle,
-}: {
-  children: React.ReactNode;
-  pageTitle?: string;
-}) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const useAlternativeBgImageStyles =
     router.asPath === '/' ||
@@ -64,12 +59,23 @@ const Layout = ({
   const hideTopBgImage =
     router.asPath === '/locations' || router.asPath === '/contact';
 
+  router &&
+    router.events &&
+    router.events.on(
+      'routeChangeComplete',
+      () => (document.body.style.position = 'static')
+    );
+
   return (
     <>
       <Head>
         <title>
-          Designo Agency Website Challenge {pageTitle ? `| ${pageTitle}` : ''}
+          Designo Agency Website Challenge | {ROUTE_NAMES[router.route]}
         </title>
+        <meta
+          name='description'
+          content='Designo Agency Website Challenge by Frontend Mentor – completed by Matthias Smith'
+        />
       </Head>
       <Controller>
         <Header></Header>

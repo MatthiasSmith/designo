@@ -1,10 +1,11 @@
 import { AppProps } from 'next/app';
-import Router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { createGlobalStyle } from 'styled-components';
 import { PageTransition } from 'next-page-transitions';
 
 import { TABLET_BP, DESKTOP_BP, UNIT } from '../constants/constants';
 import { useEffect, useState } from 'react';
+import Layout from '../components/layout/layout';
 
 const pageTransitionTime = 850;
 
@@ -371,16 +372,13 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-Router.events.on(
-  'routeChangeComplete',
-  () => (document.body.style.position = 'static')
-);
 export default function App({ Component, pageProps }: AppProps) {
   const [isReducedMotion, setIsReducedMotion] = useState(false);
+  const router = useRouter();
+
   useEffect(() => {
     setIsReducedMotion(matchMedia('(prefers-reduced-motion: reduce)').matches);
   }, []);
-  const router = useRouter();
 
   return (
     <>
@@ -390,7 +388,9 @@ export default function App({ Component, pageProps }: AppProps) {
         classNames='page-transition'
         skipInitialTransition={true}
       >
-        <Component {...pageProps} key={router.route} />
+        <Layout key={router.route}>
+          <Component {...pageProps} />
+        </Layout>
       </PageTransition>
     </>
   );
