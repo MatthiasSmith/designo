@@ -4,7 +4,7 @@ import IntroCard from '../components/intro-card';
 import designPageImages from '../data/design-page-images';
 import ProjectList from '../components/projects/project-list';
 import ProductLinksList from '../components/products/product-links-list';
-import { DESKTOP_BP, TABLET_BP } from '../constants/constants';
+import ResponsiveImage from '../components/responsive-image';
 
 const AppDesign = () => {
   const bgImagePosition = {
@@ -18,17 +18,12 @@ const AppDesign = () => {
         title='App Design'
         text='Our mobile designs bring intuitive digital solutions to your customers right at their fingertips.'
         bgImage={
-          <picture>
-            <source
-              media={`(min-width: ${DESKTOP_BP}em)`}
-              srcSet={designPageImages.app.lg as string}
-            />
-            <source
-              media={`(min-width: ${TABLET_BP}em)`}
-              srcSet={designPageImages.app.md as string}
-            />
-            <img src={designPageImages.app.sm as string} alt='' />
-          </picture>
+          <ResponsiveImage
+            imageSources={designPageImages.app}
+            layout='fixed'
+            priority={true}
+            alt=''
+          />
         }
         bgImagePosition={bgImagePosition}
       />

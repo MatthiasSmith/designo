@@ -4,7 +4,6 @@ import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
 
 import about from '../../data/about';
 import ResponsiveImage from '../responsive-image';
-import { ImageSourceType } from '../../types/image-source-type';
 
 const StyledAboutIntroCard = styled.div`
   background-color: var(--color-primary);
@@ -98,17 +97,12 @@ const AboutIntroCard = () => {
       </div>
       <div className='content-container flex-col justify-center'>
         <div className='bg-image'>
-          <picture>
-            <source
-              media={`(min-width: ${DESKTOP_BP}em)`}
-              srcSet={(about.introBg.lg as ImageSourceType).src}
-            />
-            <source
-              media={`(min-width: ${TABLET_BP}em)`}
-              srcSet={(about.introBg.md as ImageSourceType).src}
-            />
-            <img src={(about.introBg.sm as ImageSourceType).src} alt='' />
-          </picture>
+          <ResponsiveImage
+            imageSources={about.introBg}
+            layout='fixed'
+            priority={true}
+            alt=''
+          />
         </div>
         <h1 className='heading-lg'>About Us</h1>
         <p className='content-text'>

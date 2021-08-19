@@ -4,7 +4,7 @@ import IntroCard from '../components/intro-card';
 import designPageImages from '../data/design-page-images';
 import ProductLinksList from '../components/products/product-links-list';
 import ProjectList from '../components/projects/project-list';
-import { DESKTOP_BP, TABLET_BP } from '../constants/constants';
+import ResponsiveImage from '../components/responsive-image';
 
 const GraphicDesign = () => {
   const bgImagePosition = {
@@ -18,17 +18,12 @@ const GraphicDesign = () => {
         title='Graphic Design'
         text='We deliver eye-catching branding materials that are tailored to meet your business objectives.'
         bgImage={
-          <picture>
-            <source
-              media={`(min-width: ${DESKTOP_BP}em)`}
-              srcSet={designPageImages.graphic.lg as string}
-            />
-            <source
-              media={`(min-width: ${TABLET_BP}em)`}
-              srcSet={designPageImages.graphic.md as string}
-            />
-            <img src={designPageImages.graphic.sm as string} alt='' />
-          </picture>
+          <ResponsiveImage
+            imageSources={designPageImages.graphic}
+            layout='fixed'
+            priority={true}
+            alt=''
+          />
         }
         bgImagePosition={bgImagePosition}
       />

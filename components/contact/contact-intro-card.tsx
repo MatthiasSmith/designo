@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
+import ResponsiveImage from '../responsive-image';
 import ContactForm from './contact-form';
+import contact from '../../data/contact';
 
 const StyledContactIntroCard = styled.div`
   background-color: var(--color-primary);
@@ -15,11 +17,6 @@ const StyledContactIntroCard = styled.div`
   .bg-image {
     top: 0;
     left: -5.75rem;
-
-    img {
-      width: 876px;
-      height: 990px;
-    }
   }
 
   .heading-lg {
@@ -45,11 +42,6 @@ const StyledContactIntroCard = styled.div`
     .bg-image {
       top: -5rem;
       left: -7.5rem;
-
-      img {
-        width: 640px;
-        height: 640px;
-      }
     }
 
     .content-container {
@@ -87,16 +79,12 @@ const ContactIntroCard = () => {
   return (
     <StyledContactIntroCard className='flex-row-gt-md'>
       <div className='bg-image'>
-        <picture>
-          <source
-            media={`(min-width: ${TABLET_BP}em)`}
-            srcSet='/contact/desktop/bg-pattern-hero-desktop.svg'
-          />
-          <img
-            src='/contact/mobile/bg-pattern-hero-contact-mobile.svg'
-            alt=''
-          />
-        </picture>
+        <ResponsiveImage
+          imageSources={contact.introBg}
+          layout='fixed'
+          priority={true}
+          alt=''
+        />
       </div>
       <div className='content-container'>
         <h1 className='heading-lg'>Contact Us</h1>

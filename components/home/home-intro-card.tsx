@@ -135,6 +135,7 @@ const HomeIntroCard = () => {
           layout='fixed'
           width={640}
           height={639}
+          priority={true}
         />
       </div>
       <div className='flex-row-gt-md full-width'>

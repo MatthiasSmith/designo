@@ -111,13 +111,17 @@ const FormField = (props: FormFieldType) => {
       {error ? (
         <div className='error-container flex-row align-center'>
           <span className='error-msg'>{error}</span>
-          <img
-            className='error-icon'
-            src='/contact/desktop/icon-error.svg'
-            width='20px'
-            height='20px'
-            alt=''
-          />
+          <svg
+            aria-hidden={true}
+            xmlns='http://www.w3.org/2000/svg'
+            width='20'
+            height='20'
+          >
+            <g fill='none' fillRule='evenodd'>
+              <circle cx='10' cy='10' r='10' fill='#FFF' />
+              <path fill='#E7816B' d='M11 14v2H9v-2h2zm0-9v7H9V5h2z' />
+            </g>
+          </svg>
         </div>
       ) : null}
     </StyledFormField>
