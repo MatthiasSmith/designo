@@ -1,13 +1,25 @@
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 import { PageTransition } from 'next-page-transitions';
 
 import { TABLET_BP, DESKTOP_BP, UNIT } from '../constants/constants';
 import { useEffect, useState } from 'react';
 import Layout from '../components/layout/layout';
+import useCurrentWidth from '../hooks/use-current-width';
 
 const pageTransitionTime = 850;
+const pageTransitionAngle = -45;
+const pageTransitionPseudoElement = css`
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: calc(var(--pageSize) * 2);
+  height: calc(100vh * 2);
+  z-index: 100;
+  background: var(--peach);
+`;
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -36,6 +48,7 @@ const GlobalStyle = createGlobalStyle`
     --site-side-padding-md: 2.4375rem;
     --site-content-max-width: 74.3125rem;
     --border-radius: 0.9375rem;
+    --pageSize: 100vh;
 
     // breakpoints
     --tablet-width: ${TABLET_BP}${UNIT};
@@ -334,39 +347,23 @@ const GlobalStyle = createGlobalStyle`
 
   // page transitions
   @media screen and (prefers-reduced-motion: no-preference) {
-    .page-transition-enter::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 300%;
-      height: 300%;
-      z-index: 100;
-      background: var(--peach);
-      transform: translateX(0%);
-      clip-path: polygon(66.6667% 0, 100% 0, 100% 100%, 0 100%);
+    .page-transition-enter::after {
+      ${pageTransitionPseudoElement}
+      transform: translateX(0%) skewX(${pageTransitionAngle}deg);
     }
 
-    .page-transition-enter-active::before {
-      transform: translateX(56%);
+    .page-transition-enter-active::after {
+      transform: translateX(100%) skewX(${pageTransitionAngle}deg);
       transition: transform ${pageTransitionTime}ms ease-in;
     }
 
     .page-transition-exit::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      z-index: 100;
-      background: var(--peach);
-      transform: translateX(-100%);
-      clip-path: polygon(0 0, 100% 0, 33.3333% 100%, 0% 100%);
+      ${pageTransitionPseudoElement}
+      transform: translateX(-100%) skewX(${pageTransitionAngle}deg);
     }
 
     .page-transition-exit-active::before {
-      transform: translateX(-16.6667%);
+      transform: translateX(0%) skewX(${pageTransitionAngle}deg);
       transition: transform ${pageTransitionTime}ms ease-out;
     }
   }
@@ -375,10 +372,17 @@ const GlobalStyle = createGlobalStyle`
 export default function App({ Component, pageProps }: AppProps) {
   const [isReducedMotion, setIsReducedMotion] = useState(false);
   const router = useRouter();
+  const clientWidth = useCurrentWidth();
 
   useEffect(() => {
     setIsReducedMotion(matchMedia('(prefers-reduced-motion: reduce)').matches);
   }, []);
+
+  useEffect(() => {
+    clientWidth && clientWidth > window.innerHeight
+      ? document.documentElement.style.setProperty('--pageSize', '100vw')
+      : document.documentElement.style.setProperty('--pageSize', '100vh');
+  }, [clientWidth]);
 
   return (
     <>
