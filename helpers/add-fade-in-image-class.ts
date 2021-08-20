@@ -1,6 +1,10 @@
-const addFadeInImageClass = (event) => {
-  if (event.target.srcset) {
-    event.target.classList.add('fade-in-image');
+import { SyntheticEvent } from 'react';
+
+const addFadeInImageClass = (
+  event: SyntheticEvent<HTMLImageElement, Event>
+): void => {
+  if ((event.target as HTMLImageElement).srcset) {
+    (event.target as HTMLImageElement).classList.add('fade-in-image');
   }
 };
 

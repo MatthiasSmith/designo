@@ -5,14 +5,15 @@ import { TABLET_BP, DESKTOP_BP } from '../constants/constants';
 import addFadeInImageClass from '../helpers/add-fade-in-image-class';
 import useCurrentWidth from '../hooks/use-current-width';
 
+interface ResponsiveImageProps {
+  imageSources: ImageSourcesHashType;
+  imageIndex?: number;
+  alt: string;
+}
+
 const ResponsiveImage = (props) => {
   const clientWidth = useCurrentWidth();
-  const {
-    imageSources,
-    imageIndex,
-    alt,
-    ...otherProps
-  }: { imageSources: ImageSourcesHashType; imageIndex: number; alt: string } =
+  const { imageSources, imageIndex, alt, ...otherProps }: ResponsiveImageProps =
     props;
 
   let screenSize = 'sm';
