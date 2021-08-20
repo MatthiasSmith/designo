@@ -160,6 +160,7 @@ const HomeIntroCard = () => {
             height={913}
             priority={true}
             alt=''
+            className='opacity-0'
             onLoad={addFadeInImageClass}
           />
         </div>
