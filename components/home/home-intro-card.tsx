@@ -4,9 +4,9 @@ import Image from 'next/image';
 
 import { DESKTOP_BP, TABLET_BP } from '../../constants/constants';
 import ButtonLink from '../button-link';
-import addFadeInImageClass from '../../helpers/add-fade-in-image-class';
 
 const StyledHomeIntroCard = styled.article`
+  --fadeTime: 0.75s;
   text-align: center;
   padding-top: 5rem;
 
@@ -21,13 +21,13 @@ const StyledHomeIntroCard = styled.article`
   }
 
   .heading-lg {
-    animation: fade-in-move-down 0.6s ease-out 0.7s forwards;
+    animation: fade-in-move-down var(--fadeTime) ease-out 0.75s forwards;
     max-width: 26.875rem;
     opacity: 0;
   }
 
   .body-text {
-    animation: fade-in-move-down 0.6s ease-out 0.95s forwards;
+    animation: fade-in-move-down var(--fadeTime) ease-out 1s forwards;
     margin-top: 1rem;
     max-width: 26.875rem;
     opacity: 0;
@@ -35,18 +35,16 @@ const StyledHomeIntroCard = styled.article`
 
   .learn-more-link {
     margin-top: 2rem;
-    animation: fade-in-move-down 0.6s ease-out 1.2s forwards;
+    animation: fade-in-move-down var(--fadeTime) ease-out 1.25s forwards;
     opacity: 0;
   }
 
   .img-container {
-    animation: fade-in 1.3s ease-out 0s forwards;
     display: flex;
     justify-content: center;
     position: relative;
     height: 33.85rem;
     margin-top: -5.915rem;
-    opacity: 0;
 
     > div {
       flex: 0 0 auto;
@@ -160,8 +158,6 @@ const HomeIntroCard = () => {
             height={913}
             priority={true}
             alt=''
-            className='opacity-0'
-            onLoad={addFadeInImageClass}
           />
         </div>
       </div>
